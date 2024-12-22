@@ -1,0 +1,15 @@
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/bin/Debug/net8.0/Repositories.deps.json
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/bin/Debug/net8.0/Repositories.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/bin/Debug/net8.0/Repositories.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/bin/Debug/net8.0/Entities.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/bin/Debug/net8.0/Entities.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.csproj.AssemblyReference.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.AssemblyInfoInputs.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.AssemblyInfo.cs
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.csproj.CoreCompileInputs.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Reposito.787EC4B2.Up2Date
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/refint/Repositories.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/ref/Repositories.dll

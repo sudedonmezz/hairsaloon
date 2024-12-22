@@ -1,0 +1,40 @@
+@model IEnumerable<Entities.Models.Product>
+
+
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h2 class="display-6">@ViewBag.CategoryName</h2>
+    </div>
+
+<div class="row justify-content-center">
+        @foreach (var product in Model)
+        {
+            var duration = @product.Duration;
+
+            <div class="col-md-3 mb-4">
+                <div class="card shadow border-0 h-100 text-center">
+                    <!-- Kategori Resmi -->
+                   
+                    <!-- Kategori İçeriği -->
+                    <div class="card-body d-flex flex-column">
+                        <h4 class="card-title">@product.ProductName</h4>
+                        <p class="card-text">@product.ProductDescription</p>
+                        @if (duration.TotalHours >= 1)
+            {
+              <p class="card-text">  @($"{(int)duration.TotalHours} hour{(duration.TotalHours > 1 ? "s" : "")}")</p>
+            }
+            else
+            {
+               <p class="card-text"> @($"{(int)duration.TotalMinutes} minute{(duration.TotalMinutes > 1 ? "s" : "")}")</p>
+            }
+
+            <p class="card-text">@product.ProductPrice tl</p>
+                        <a class="btn btn-brand mt-auto"asp-controller="Employee" asp-action="GetByProduct" asp-route-productId="@product.ProductId">
+                        Çalışanları Gör
+                    </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HairArt", "HairArt\HairArt.csproj", "{B8618697-812C-42F1-91A5-015BB9D34561}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{586613B4-A2E4-480B-BBBC-3F0D12118FEB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "Repositories\Repositories.csproj", "{0ED90594-E450-4420-A34C-3679615C353B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Services\Services.csproj", "{5CCC6539-1311-462A-B270-9E77FCCD9A3C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B8618697-812C-42F1-91A5-015BB9D34561}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8618697-812C-42F1-91A5-015BB9D34561}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8618697-812C-42F1-91A5-015BB9D34561}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8618697-812C-42F1-91A5-015BB9D34561}.Release|Any CPU.Build.0 = Release|Any CPU
+		{586613B4-A2E4-480B-BBBC-3F0D12118FEB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{586613B4-A2E4-480B-BBBC-3F0D12118FEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{586613B4-A2E4-480B-BBBC-3F0D12118FEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{586613B4-A2E4-480B-BBBC-3F0D12118FEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0ED90594-E450-4420-A34C-3679615C353B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0ED90594-E450-4420-A34C-3679615C353B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0ED90594-E450-4420-A34C-3679615C353B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0ED90594-E450-4420-A34C-3679615C353B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCC6539-1311-462A-B270-9E77FCCD9A3C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCC6539-1311-462A-B270-9E77FCCD9A3C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCC6539-1311-462A-B270-9E77FCCD9A3C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCC6539-1311-462A-B270-9E77FCCD9A3C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,425 @@
+{
+  "Files": [
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/css/style.css",
+      "PackagePath": "staticwebassets/css/style.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/favicon.ico",
+      "PackagePath": "staticwebassets/favicon.ico"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/Adsız tasarım (1).jpg",
+      "PackagePath": "staticwebassets/images/Adsız tasarım (1).jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/adam.jpg",
+      "PackagePath": "staticwebassets/images/adam.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/beautiful.jpg",
+      "PackagePath": "staticwebassets/images/beautiful.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/category-1.jpg",
+      "PackagePath": "staticwebassets/images/category-1.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/category-2.jpg",
+      "PackagePath": "staticwebassets/images/category-2.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/category-3.jpg",
+      "PackagePath": "staticwebassets/images/category-3.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/category-4.jpg",
+      "PackagePath": "staticwebassets/images/category-4.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/deneme2.jpg",
+      "PackagePath": "staticwebassets/images/deneme2.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-1.jpg",
+      "PackagePath": "staticwebassets/images/employee-1.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-10.jpg",
+      "PackagePath": "staticwebassets/images/employee-10.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-11.jpg",
+      "PackagePath": "staticwebassets/images/employee-11.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-12.jpg",
+      "PackagePath": "staticwebassets/images/employee-12.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-13.jpg",
+      "PackagePath": "staticwebassets/images/employee-13.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-14.jpg",
+      "PackagePath": "staticwebassets/images/employee-14.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-15.jpg",
+      "PackagePath": "staticwebassets/images/employee-15.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-16.jpg",
+      "PackagePath": "staticwebassets/images/employee-16.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-2.jpg",
+      "PackagePath": "staticwebassets/images/employee-2.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-3.jpg",
+      "PackagePath": "staticwebassets/images/employee-3.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-4.jpg",
+      "PackagePath": "staticwebassets/images/employee-4.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-5.jpg",
+      "PackagePath": "staticwebassets/images/employee-5.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-6.jpg",
+      "PackagePath": "staticwebassets/images/employee-6.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-7.jpg",
+      "PackagePath": "staticwebassets/images/employee-7.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-8.jpg",
+      "PackagePath": "staticwebassets/images/employee-8.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/employee-9.jpg",
+      "PackagePath": "staticwebassets/images/employee-9.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/hair.jpg",
+      "PackagePath": "staticwebassets/images/hair.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/hairdye.png",
+      "PackagePath": "staticwebassets/images/hairdye.png"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/hairlogo.jpg",
+      "PackagePath": "staticwebassets/images/hairlogo.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/hairmask.png",
+      "PackagePath": "staticwebassets/images/hairmask.png"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/hairr.jpg",
+      "PackagePath": "staticwebassets/images/hairr.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/imaage.png",
+      "PackagePath": "staticwebassets/images/imaage.png"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/mrb.jpg",
+      "PackagePath": "staticwebassets/images/mrb.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/nailpolish.png",
+      "PackagePath": "staticwebassets/images/nailpolish.png"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/scissors.png",
+      "PackagePath": "staticwebassets/images/scissors.png"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/service-1.svg",
+      "PackagePath": "staticwebassets/images/service-1.svg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/service-2.svg",
+      "PackagePath": "staticwebassets/images/service-2.svg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/service-3.svg",
+      "PackagePath": "staticwebassets/images/service-3.svg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/tasarim.jpg",
+      "PackagePath": "staticwebassets/images/tasarim.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/tasarim3.jpg",
+      "PackagePath": "staticwebassets/images/tasarim3.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/images/tasarim4.jpg",
+      "PackagePath": "staticwebassets/images/tasarim4.jpg"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/js/app.js",
+      "PackagePath": "staticwebassets/js/app.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/js/site.js",
+      "PackagePath": "staticwebassets/js/site.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/LICENSE",
+      "PackagePath": "staticwebassets/lib/bootstrap"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/css/bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/bootstrap/dist/js/bootstrap.min.js.map",
+      "PackagePath": "staticwebassets/lib/bootstrap/dist/js/bootstrap.min.js.map"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation-unobtrusive/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation/LICENSE.md",
+      "PackagePath": "staticwebassets/lib/jquery-validation/LICENSE.md"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation/dist/additional-methods.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation/dist/additional-methods.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/additional-methods.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation/dist/jquery.validate.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery-validation/dist/jquery.validate.min.js",
+      "PackagePath": "staticwebassets/lib/jquery-validation/dist/jquery.validate.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery/LICENSE.txt",
+      "PackagePath": "staticwebassets/lib/jquery/LICENSE.txt"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery/dist/jquery.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery/dist/jquery.min.js",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.js"
+    },
+    {
+      "Id": "/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/wwwroot/lib/jquery/dist/jquery.min.map",
+      "PackagePath": "staticwebassets/lib/jquery/dist/jquery.min.map"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.HairArt.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.build.HairArt.props",
+      "PackagePath": "build\\HairArt.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildMultiTargeting.HairArt.props",
+      "PackagePath": "buildMultiTargeting\\HairArt.props"
+    },
+    {
+      "Id": "obj/Debug/net8.0/staticwebassets/msbuild.buildTransitive.HairArt.props",
+      "PackagePath": "buildTransitive\\HairArt.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

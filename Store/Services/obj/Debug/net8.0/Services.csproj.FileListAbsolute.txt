@@ -1,0 +1,17 @@
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Services.deps.json
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Services.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Services.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Entities.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Repositories.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Entities.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/bin/Debug/net8.0/Repositories.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.csproj.AssemblyReference.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.GeneratedMSBuildEditorConfig.editorconfig
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.AssemblyInfoInputs.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.AssemblyInfo.cs
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.csproj.CoreCompileInputs.cache
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.csproj.Up2Date
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/refint/Services.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.pdb
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/ref/Services.dll

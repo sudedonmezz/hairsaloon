@@ -1,0 +1,32 @@
+@model IQueryable<Product>
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+    </head>
+    <body>
+        
+        @foreach(Product product in Model)
+        {
+            var duration = @product.Duration;
+            <div>
+               <p>@product.ProductName</p> 
+               <p>@product.ProductPrice</p>
+               @if (duration.TotalHours >= 1)
+            {
+              <p>  @($"{(int)duration.TotalHours} hour{(duration.TotalHours > 1 ? "s" : "")}")</p>
+            }
+            else
+            {
+               <p> @($"{(int)duration.TotalMinutes} minute{(duration.TotalMinutes > 1 ? "s" : "")}")</p>
+            }
+               
+               <a href="/Product/Get/@product.ProductId">Get details</a>
+                </div>
+            
+        }
+    </body>
+    </html>

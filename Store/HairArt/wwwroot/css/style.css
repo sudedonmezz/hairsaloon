@@ -1,0 +1,469 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Hanken+Grotesk:ital,wght@0,100..900;1,100..900&display=swap');
+
+
+/*veriables*/
+:root {
+    --c-brand: #FFC5D3; 
+    --c-brand-rgb:248,54,145;
+    --c-dark: #303050;
+    --c-body: #636383;
+    --primary-color:#222222;
+
+    --f-main: 'DM Sans' , sans-serif;
+    --transition: all .6s cubic-bezier(.165,.84,.44,1);
+    --shadow:0px 15px 40px rgba(0,0,0,0.1);
+
+
+}
+
+/*reset and helpers*/
+
+/* Genel responsive ayarlar */
+body {
+    font-family: var(--f-main);
+    color: var(--primary-color);
+    line-height: 1.7;
+    padding-top: 70px; /* Navbar ile içerik arasındaki boşluk */
+}
+
+h1,.h1, h2,.h2,h3,.h3,h4,.h4,h5,.h5,h6,.h6
+{
+    font-weight: 700;
+    color:var(--c-dark);
+
+}
+
+
+
+a{
+    text-decoration: none;
+    color:var(--c-dark);
+    transition:var(--transition);
+
+}
+
+a:hover{
+    color: var(--c-brand);
+
+}
+
+img{
+    width:100%;
+}
+
+.section-padding{
+    padding-top:120px;
+    padding-bottom: 120px;
+}
+
+.text-brand{
+    color:var(--c-brand);
+}
+
+/*Navbar*/
+.navbar{
+     
+    padding-top:30px;
+    padding-bottom:30px;
+
+}
+
+
+@media (min-width:990px)
+{
+    .navbar-expand-lg .navbar-nav .nav-link{
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        padding-top: 100px; /* Küçük ekranlarda mobil navbar için daha fazla padding */
+    }
+}
+
+
+
+.navbar .navbar-nav .nav-link{
+    font-weight: 500;
+    color: var(--c-dark);
+   
+}
+.navbar .navbar-nav .nav-link:hover{
+    color:var(--c-brand);
+}
+
+
+
+
+.navbar-brand
+{
+    font-size: 28px;
+    font-weight:500;
+    color:var(--c-brand) !important;
+}
+
+.social-icon
+{
+    width:36px;
+    height: 36px;
+    background-color: var(--c-brand);
+    color:white;
+    border: 2px solid var(--c-brand);
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+}
+
+/*btn*/
+.btn{
+    padding: 10px 24px;
+    border-radius: 0;
+    border-width: 2px;
+    font-weight:500;
+    
+}
+
+.btn-brand, .btn-brand:focus{
+    background-color: var(--c-brand);
+    color:white;
+    border-color: var(--c-brand);
+}
+
+/* Buton */
+.btn-brand {
+    font-size: 1rem;
+    padding: 10px 20px;
+}
+
+.btn-brand:hover{
+    background-color:transparent;
+    color:var(--c-brand);
+    border-color: var(--c-brand);
+}
+
+.btn-brand:focus{
+    background-color: var(--c-brand);
+}
+
+
+
+img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px; /* Görsele köşe yuvarlama eklenebilir */
+}
+
+.section_Image {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.section_Image::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -40%;
+    z-index: 2;
+    display: block;
+    width: 20%;
+    height: 100%;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, .1) 100%);
+    transform: skewX(-25deg);
+    transition: all .4s;
+}
+
+.section_Image:hover::after {
+    left: 120%;
+}
+
+.section_Image img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50% 50% 50% 0;
+    filter: var(--image-filter);
+    transition: var(--transition);
+}
+
+.section_Image img:hover {
+    filter: var(--image-filter-hover);
+}
+
+#home {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+}
+
+/* Sol taraf metin */
+#home .container {
+    position: relative;
+    z-index: 2;
+}
+
+
+.hero-image {
+    position: relative;
+    width: 100%;
+    max-width: 500px; /* Görsel ve kutunun genişliğini eşitle */
+    margin: auto;
+    display: flex;
+    align-items: flex-end; /* Görselin alt kısmını kutuyla hizala */
+    justify-content: center;
+}
+
+.hero-image img {
+    position: relative;
+    z-index: 2; /* Görsel, kutunun üzerinde görünür */
+    border-radius: 15px; /* Görselin köşelerini yuvarlatır */
+    box-shadow: var(--shadow); /* Görsele gölge efekti */
+    width: 100%; /* Görsel genişliği */
+    height: auto;
+}
+
+.pink-box {
+    position: absolute;
+    bottom: 0; /* Kutunun alt kısmını görselle hizala */
+    left: 0;
+    width: 100%; /* Kutunun genişliğini görselle eşit yap */
+    height: 100%; /* Kutunun yüksekliği görselle aynı */
+    background-color: var(--c-brand); /* Pembe arka plan */
+    border-radius: 15px; /* Kutunun köşe yuvarlaması */
+    z-index: 1; /* Kutucuk, görselin arkasında kalır */
+    border: 2px solid #fff; /* Beyaz çerçeve */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Beyaz parlaklık efekti */
+}
+
+
+/* Sol taraf metin düzeni */
+#home h2 {
+    font-size: 2.5rem; /* Varsayılan başlık boyutu */
+    font-weight: bold;
+}
+
+#home p {
+    font-size: 1.2rem;
+    color: var(--c-body);
+}
+
+
+
+
+/* Responsive düzenlemeler */
+@media (max-width: 991px) {
+    #home h2 {
+        font-size: 2rem; /* Orta ekranlarda başlık boyutunu küçült */
+    }
+
+    .hero-image {
+        max-width: 350px; /* Görsel boyutunu orta ekranlarda küçült */
+    }
+}
+
+@media (max-width: 767px) {
+    #home {
+        padding: 50px 20px; /* Mobil cihazlarda içeriği daralt */
+    }
+
+    #home h2 {
+        font-size: 1.8rem; /* Başlık boyutunu küçült */
+        text-align: center; /* Mobilde ortala */
+    }
+
+    #home p {
+        font-size: 1rem;
+        text-align: center; /* Alt metni ortala */
+    }
+
+    .hero-image {
+        max-width: 300px; /* Mobilde görseli daha küçük yap */
+    }
+
+    .btn-brand {
+        display: block;
+        margin: 20px auto; /* Mobilde butonu ortala */
+    }
+}
+
+#services {
+    /* Üstte ve altta yeterli boşluk eklenerek kutular ortalanıyor */
+    padding-top: 200px; /* Üst boşluk artırıldı */
+    padding-bottom: 100px; /* Alt boşluk artırıldı */
+    display: flex;
+    align-items: center; /* İçerik dikeyde ortalanır */
+    justify-content: center; /* İçerik yatayda ortalanır */
+    flex-direction: column; /* İçerikler dikey düzenlenir */
+    text-align: center; /* Başlık ve alt metin ortalanır */
+}
+
+
+.service-card {
+    background-color: #FFC5D3; /* Pembe arka plan */
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px solid #fff; /* Beyaz çerçeve */
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); /* Beyaz parlaklık efekti */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column; /* İçerikleri dikey hizalar */
+    align-items: center; /* İçerikleri yatay ortalar */
+    justify-content: space-between; /* İçerik aralığını düzenler */
+    min-height: 400px; /* Dikdörtgen görünüm için yüksekliği artırdık */
+    width: 280px; /* Sabit genişlik */
+    margin: 15px; /* Kutular arasında boşluk */
+}
+
+.service-card:hover {
+    transform: translateY(-10px); /* Hover efekti */
+    box-shadow: 0 0 30px rgba(255, 255, 255, 1), 0px 8px 20px rgba(0, 0, 0, 0.2); /* Daha parlak çerçeve ve gölge efekti */
+}
+
+
+.service-card img {
+    max-width: 80px; /* Görsel boyutunu sabit tutar */
+    height: auto;
+    margin-bottom: 20px; /* Görsel ile içerik arasındaki boşluk */
+}
+
+.service-card h4 {
+    font-size: 1.5rem;
+    margin: 10px 0;
+    color: var(--c-dark); /* Başlık rengi */
+    text-align: center;
+}
+
+
+
+.service-card button {
+    margin-top: auto; /* Butonu kutunun altına sabitler */
+}
+
+
+
+#services h2 {
+    font-size: 2.5rem; /* Büyük başlık */
+    font-weight: 700; /* Kalın yazı */
+    color: var(--c-dark); /* Koyu renk */
+    margin-bottom: -5px; /* Alt boşluk */
+    margin-top: -50px; /* Başlık yukarı taşınıyor */
+}
+
+#services p {
+    font-size: 1.2rem; /* Alt metin */
+    color: #636383; /* Açık gri renk */
+    margin-bottom: 50px; /* Kutucuklara olan boşluk */
+}
+
+
+#price-list {
+    padding: 100px 0; /* Daha fazla boşluk için padding */
+    text-align: center;
+   /* Hafif bir arka plan rengi */
+}
+
+/* Ana başlık */
+#price-list h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #303050;
+    margin-bottom: 20px;
+}
+
+/* Sütun başlıkları */
+#price-list h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #303050;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+/* Liste düzeni */
+#price-list ul li {
+    border-bottom: 1px solid #ddd; /* Satırlar arası çizgi */
+    padding-bottom: 10px; /* Alt boşluk */
+}
+
+#price-list ul li:last-child {
+    border-bottom: none; /* Son elemanda çizgi yok */
+}
+
+#price-list ul li span {
+    font-size: 0.9rem;
+    color: #636383;
+    text-align: left; /* Yazılar sola hizalı */
+}
+
+#price-list ul li strong {
+    font-size: 0.9rem;
+    color: #303030;
+    text-align: right; /* Fiyatlar sağa hizalı */
+}
+
+/* Responsive Tasarım */
+@media (max-width: 767px) {
+    #price-list h2 {
+        font-size: 1.8rem; /* Küçük ekranlarda başlık boyutu küçültülür */
+    }
+
+    #price-list h3 {
+        font-size: 1.3rem; /* Küçük ekranlarda sütun başlıkları küçültülür */
+    }
+
+    #price-list ul li span,
+    #price-list ul li strong {
+        font-size: 0.8rem; /* Yazılar daha küçük */
+    }
+}
+
+.card-img-container {
+    position: relative;
+    overflow: hidden;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+.card-img-top {
+    width: 100%;
+    height: 200px; /* Sabit yükseklik */
+    object-fit: cover; /* Görsel düzgün şekilde kesilir */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-img-container:hover .card-img-top {
+    transform: scale(1.1); /* Hover ile büyütme efekti */
+}
+
+.card {
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 200px;
+}
+
+.card:hover {
+    transform: translateY(-15px); /* Kartı daha yukarı taşı */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2); /* Gölgeyi derinleştir */
+}
+
+.btn-brand {
+    background-color: var(--c-brand);
+    color: white;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.btn-brand:hover {
+    background-color: var(--c-dark);
+    color: white;
+}
+
+
+
