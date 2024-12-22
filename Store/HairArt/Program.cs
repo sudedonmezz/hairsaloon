@@ -3,6 +3,8 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using Services.Contracts;
+using Microsoft.AspNetCore.Identity;
+
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,8 +16,25 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("mssqlconnection"),
         b => b.MigrationsAssembly("HairArt")
     );
+
+    options.EnableSensitiveDataLogging(true);
 }); //servis kaydı yapıldı.
 //AppContext.SetSwitch("System.Net.Http.SocketsHttpHandler.Http2UnencryptedSupport", true);
+
+
+
+builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+{
+    options.SignIn.RequireConfirmedAccount = false;
+    options.User.RequireUniqueEmail = true;
+    options.Password.RequireUppercase = false;
+    options.Password.RequireDigit = false;
+    options.Password.RequiredLength = 6;
+})
+.AddEntityFrameworkStores<RepositoryContext>();
+
+
+
 
 builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession();
