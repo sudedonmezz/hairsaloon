@@ -15,3 +15,4 @@
 /Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/refint/Services.dll
 /Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.pdb
 /Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/ref/Services.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Services/obj/Debug/net8.0/Services.sourcelink.json

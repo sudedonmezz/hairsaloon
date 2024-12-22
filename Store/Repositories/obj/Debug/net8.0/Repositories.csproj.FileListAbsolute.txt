@@ -13,3 +13,4 @@
 /Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/refint/Repositories.dll
 /Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.pdb
 /Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/ref/Repositories.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/Repositories/obj/Debug/net8.0/Repositories.sourcelink.json

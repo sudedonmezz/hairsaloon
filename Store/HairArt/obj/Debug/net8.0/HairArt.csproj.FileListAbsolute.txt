@@ -197,3 +197,5 @@
 /Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/bin/Debug/net8.0/runtimes/unix/lib/net8.0/Microsoft.Data.SqlClient.dll
 /Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/bin/Debug/net8.0/runtimes/win/lib/net8.0/Microsoft.Data.SqlClient.dll
 /Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/bin/Debug/net8.0/runtimes/win/lib/net8.0/System.Runtime.Caching.dll
+/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/obj/Debug/net8.0/HairArt.sourcelink.json
+/Users/sudedonmez/Desktop/hairsaloon/Store/HairArt/bin/Debug/net8.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
