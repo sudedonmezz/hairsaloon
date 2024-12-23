@@ -41,4 +41,10 @@ public class AccountController : Controller
         }
         return View();
     }
+
+    public async Task<IActionResult> Logout(string ReturnUrl="/")
+    {
+        await _signInManager.SignOutAsync();
+        return Redirect(ReturnUrl);
+    }
 }

@@ -1,0 +1,27 @@
+  @if(User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+  {
+  <li class="nav-item">
+          <a class="nav-link"
+          aria-current="page" asp-area="Admin" asp-action="Index" asp-controller="Dashboard">Admin</a>
+        </li>
+  }
+
+ 
+ 
+ @if(User.Identity.IsAuthenticated)
+        {
+          <li class="nav-item">
+            <a class="btn btn-light"
+            aria-current="page"
+            asp-area=""
+             asp-action="Logout" asp-controller="Account">Logout</a>
+        </li>
+        }
+        else
+        {
+          <li class="nav-item">
+            <a class="btn btn-light"
+            asp-area=""
+             asp-action="Login" asp-controller="Account">Login</a>
+        </li>
+        }

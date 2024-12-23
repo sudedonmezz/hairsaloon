@@ -70,11 +70,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
-app.UseRouting();
 app.UseSession();
-app.ConfigureDefaultAdminUser();
+app.UseRouting();
+
 app.UseAuthorization();
+app.UseAuthentication();
+
 
 app.UseEndpoints(endpoints =>
 {
@@ -90,6 +91,8 @@ endpoints.MapControllerRoute(
 });
 
 
+
+app.ConfigureDefaultAdminUser();
 
 
 app.Run();
