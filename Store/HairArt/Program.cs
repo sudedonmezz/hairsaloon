@@ -4,6 +4,7 @@ using Repositories.Contracts;
 using Services;
 using Services.Contracts;
 using Microsoft.AspNetCore.Identity;
+using HairArt.Infrastructure.Extensions;
 
 using Microsoft.EntityFrameworkCore;
 
@@ -32,6 +33,7 @@ builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
     options.Password.RequiredLength = 6;
 })
 .AddEntityFrameworkStores<RepositoryContext>();
+
 
 
 
@@ -71,7 +73,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 app.UseSession();
-
+app.ConfigureDefaultAdminUser();
 app.UseAuthorization();
 
 app.UseEndpoints(endpoints =>
@@ -86,5 +88,8 @@ endpoints.MapControllerRoute(
      name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 });
+
+
+
 
 app.Run();
