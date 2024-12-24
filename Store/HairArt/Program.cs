@@ -60,6 +60,7 @@ builder.Services.AddScoped<IEmployeeService,EmployeeManager>();
 builder.Services.AddScoped<IScheduleService,ScheduleManager>();
 builder.Services.AddScoped<IEmployeeScheduleService,EmployeeScheduleManager>();
 builder.Services.AddScoped<IEmployeeProductService, EmployeeProductManager>();
+builder.Services.AddScoped<IAuthService,AuthManager>();
 
 var app = builder.Build();
 
