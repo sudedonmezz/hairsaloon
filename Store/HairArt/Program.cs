@@ -2,6 +2,7 @@ using HairArt.Models;
 using Repositories;
 using Repositories.Contracts;
 using Services;
+using Entities.Models;
 using Services.Contracts;
 using Microsoft.AspNetCore.Identity;
 using HairArt.Infrastructure.Extensions;
@@ -24,7 +25,7 @@ builder.Services.AddDbContext<RepositoryContext>(options =>
 
 
 
-builder.Services.AddIdentity<IdentityUser, IdentityRole>(options =>
+builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.SignIn.RequireConfirmedAccount = false;
     options.User.RequireUniqueEmail = true;
@@ -48,6 +49,8 @@ builder.Services.AddScoped<IEmployeeRepository,EmployeeRepository>();
 builder.Services.AddScoped<IScheduleRepository,ScheduleRepository>();
 builder.Services.AddScoped<IEmployeeScheduleRepository,EmployeeScheduleRepository>();
 builder.Services.AddScoped<IEmployeeProductRepository, EmployeeProductRepository>();
+builder.Services.AddScoped<UserManager<ApplicationUser>>();
+builder.Services.AddScoped<SignInManager<ApplicationUser>>();
 
 
 builder.Services.AddScoped<IServiceManager,ServiceManager>();

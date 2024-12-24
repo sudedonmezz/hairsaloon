@@ -1,16 +1,17 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Identity;
+using Entities.Models;
 using HairArt.Models;
 
 namespace HairArt.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly UserManager<IdentityUser> _userManager;
+    private readonly UserManager<ApplicationUser> _userManager;
 
-    private readonly SignInManager<IdentityUser> _signInManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
 
-    public AccountController(UserManager<IdentityUser> userManager,SignInManager<IdentityUser> signInManager)
+    public AccountController(UserManager<ApplicationUser> userManager,SignInManager<ApplicationUser> signInManager)
     {
         _signInManager=signInManager;
         _userManager = userManager;
@@ -26,7 +27,8 @@ public class AccountController : Controller
     {
         if(ModelState.IsValid)
         {
-            IdentityUser user = await _userManager.FindByEmailAsync(model.Email);
+            ApplicationUser user = await _userManager.FindByEmailAsync(model.Email);
+
 
             if(user is not null)
             {
@@ -46,5 +48,44 @@ public class AccountController : Controller
     {
         await _signInManager.SignOutAsync();
         return Redirect(ReturnUrl);
+    }
+
+    public IActionResult Register()
+    {
+        return View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> Register([FromForm]RegisterDto model)
+    {
+        var user=new ApplicationUser
+        {
+            Name=model.Name,
+            LastName=model.LastName,
+            Email=model.Email,
+            UserName = model.Email,
+            PhoneNumber = model.PhoneNumber
+           
+        };
+        var result=await _userManager.CreateAsync(user,model.Password);
+
+        if(result.Succeeded)
+        {
+            var roleResult=await _userManager 
+            .AddToRoleAsync(user,"User");
+            if(roleResult.Succeeded)
+            {
+                return RedirectToAction("Login");
+            }
+        }
+        else 
+        {
+            foreach (var err in result.Errors)
+            {
+                ModelState.AddModelError("",err.Description);
+            }
+        }
+        return View();
     }
 }
