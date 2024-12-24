@@ -2,6 +2,8 @@ using HairArt.Models;
 using Repositories;
 using Repositories.Contracts;
 using Services;
+using AutoMapper;
+using HairArt.Infrastructure.Mapper;
 using Entities.Models;
 using Services.Contracts;
 using Microsoft.AspNetCore.Identity;
@@ -61,6 +63,8 @@ builder.Services.AddScoped<IScheduleService,ScheduleManager>();
 builder.Services.AddScoped<IEmployeeScheduleService,EmployeeScheduleManager>();
 builder.Services.AddScoped<IEmployeeProductService, EmployeeProductManager>();
 builder.Services.AddScoped<IAuthService,AuthManager>();
+builder.Services.AddAutoMapper(typeof(MappingProfile));
+
 
 var app = builder.Build();
 
