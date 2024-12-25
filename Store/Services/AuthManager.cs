@@ -140,5 +140,23 @@ public async Task<IEnumerable<string>> GetOneUserRoles(string email)
             return await _userManager.GetRolesAsync(user);
         }
 
+        public async Task<IdentityResult> ResetPassword(ResetPasswordDto model)
+        {
+            var user=await _userManager.FindByEmailAsync(model.Email);
+            if(user is not null)
+            {
+                await _userManager.RemovePasswordAsync(user);
+                var result= await _userManager.AddPasswordAsync(user, model.Password);
+                return result;
+            }
+            throw new Exception("User could not be found.");
+        }
+
+        public async Task<IdentityResult> DeleteOneUser(string email)
+         {
+            var user=await GetOneUser(email);
+            return await _userManager.DeleteAsync(user);
+         }
+
 
 }

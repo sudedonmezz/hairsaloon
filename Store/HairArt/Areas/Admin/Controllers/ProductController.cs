@@ -2,10 +2,13 @@ using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Authorization;
 namespace HairArt.Areas.Admin.Controllers;
 
 
+
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class ProductController : Controller
 {
 

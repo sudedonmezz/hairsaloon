@@ -15,5 +15,9 @@ namespace Services.Contracts;
 
          Task<IEnumerable<string>> GetOneUserRoles(string email);
 
+         Task<IdentityResult> ResetPassword(ResetPasswordDto model);
+
+          Task<IdentityResult> DeleteOneUser(string email);
+
     }
 

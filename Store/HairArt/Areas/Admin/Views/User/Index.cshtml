@@ -3,6 +3,7 @@
     <div class="my-5"><i class="fa fa-plus"></i></div>
     <div class="text-center my-5">
         <div class="display-6">Users</div>
+        <a class="btn btn-outline-info" asp-action="Create">Create</a>
     </div>
 <table class="table table-striped">
     <thead>
@@ -20,12 +21,17 @@
         <tr>
             <td>@user.Id</td>
             <td>@user.UserName</td>
-            <td>-</td>
+            <td user-name="@user.UserName" user-role=""></td>
             <td>
                 <div class="btn-group">
                     <a class="btn btn-sm btn-warning"asp-action="Update" asp-route-id="@user.UserName">Edit</a>
-                    <a class="btn btn-sm btn-info">Reset Password</a>
-                    <a class="btn btn-sm btn-danger">Delete</a>
+                    <a class="btn btn-sm btn-info"asp-action="ResetPassword" asp-route-id="@user.UserName">Reset Password</a>
+                    <form method="post" asp-action="DeleteOneUser">
+                        <input type="hidden" name="Email" value="@user.Email"/>
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fa fa-solid fa-trash"></i>Delete
+                        </button>
+                    </form>
                 </div>
             </td>
         </tr>

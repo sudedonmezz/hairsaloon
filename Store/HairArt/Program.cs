@@ -6,6 +6,7 @@ using AutoMapper;
 using HairArt.Infrastructure.Mapper;
 using Entities.Models;
 using Services.Contracts;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Identity;
 using HairArt.Infrastructure.Extensions;
 
@@ -65,7 +66,14 @@ builder.Services.AddScoped<IEmployeeProductService, EmployeeProductManager>();
 builder.Services.AddScoped<IAuthService,AuthManager>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 
-
+// ConfigureApplicationCookie metodu burada çağrılıyor.
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.LoginPath = new PathString("/Account/Login");
+    options.ReturnUrlParameter = CookieAuthenticationDefaults.ReturnUrlParameter;
+    options.ExpireTimeSpan = TimeSpan.FromMinutes(10);
+    options.AccessDeniedPath = new PathString("/Account/AccessDenied");
+});
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -81,8 +89,9 @@ app.UseStaticFiles();
 app.UseSession();
 app.UseRouting();
 
-app.UseAuthorization();
 app.UseAuthentication();
+app.UseAuthorization();
+
 
 
 app.UseEndpoints(endpoints =>

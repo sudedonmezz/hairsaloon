@@ -1,9 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 using Entities.Models;
+using Microsoft.AspNetCore.Authorization;
 namespace HairArt.Areas.Admin.Controllers;
 
+
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class UserController : Controller
 {
     private readonly IServiceManager _manager;
@@ -98,5 +101,34 @@ public async Task<IActionResult> Update([FromForm] UserDtoForUpdate userDto)
 
     return View(userDto); // Hatalıysa aynı sayfaya dön
 }
+public async Task<IActionResult> ResetPassword([FromRoute(Name="id")]string id)
+{
+return View(new ResetPasswordDto()
+{
+    Email=id
+});
+}
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<IActionResult> ResetPassword([FromForm]ResetPasswordDto model)
+    {
+    var result= await _manager.AuthService.ResetPassword(model);
+    return result.Succeeded
+    ? RedirectToAction("Index")
+    : View();
+    }
+
+    [HttpPost]
+    [ValidateAntiForgeryToken]
+    public async Task<ActionResult> DeleteOneUser([FromForm]UserDto userDto)
+    {
+        var result = await _manager
+        .AuthService
+        .DeleteOneUser(userDto.Email);
+
+        return result.Succeeded
+        ? RedirectToAction("Index")
+        : View();
+    }
 
 }
