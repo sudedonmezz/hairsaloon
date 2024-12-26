@@ -1,5 +1,7 @@
 using Entities.Models;
 using Repositories.Contracts;
+using Microsoft.EntityFrameworkCore;
+
 namespace Repositories;
 
 public class EmployeeProductRepository : RepositoryBase<EmployeeProduct>, IEmployeeProductRepository
@@ -15,10 +17,18 @@ public class EmployeeProductRepository : RepositoryBase<EmployeeProduct>, IEmplo
 
     public IEnumerable<EmployeeProduct> GetAllEmployeeProducts(bool trackChanges) =>
         FindAll(trackChanges).ToList();
+public IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges)
+{
+    return FindByCondition(ep => ep.EmployeeId == employeeId, trackChanges)
+        .Include(ep => ep.Product)
+        .ToList();
+}
 
-    public IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges) =>
-        FindByCondition(ep => ep.EmployeeId == employeeId, trackChanges).ToList();
+public IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges)
+{
+    return FindByCondition(ep => ep.ProductId == productId, trackChanges)
+        .Include(ep => ep.Employee)
+        .ToList();
+}
 
-    public IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges) =>
-        FindByCondition(ep => ep.ProductId == productId, trackChanges).ToList();
 }

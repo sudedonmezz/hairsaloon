@@ -7,4 +7,6 @@ public class EmployeeProduct
 
     public int ProductId { get; set; }
     public Product? Product { get; set; }
+
+    public ICollection<Appointment>? Appointments { get; set; } // Çalışan-takvim randevuları
 }

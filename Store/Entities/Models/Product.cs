@@ -25,6 +25,9 @@ public class Product
 
       
 
+// Navigation Property
+   
+   
 
    public ICollection<EmployeeProduct> EmployeeProducts { get; set; } = new List<EmployeeProduct>(); // Many-to-Many Relationship
 }

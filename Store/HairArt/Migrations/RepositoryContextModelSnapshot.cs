@@ -93,6 +93,41 @@ namespace HairArt.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Models.Appointment", b =>
+                {
+                    b.Property<int>("AppointmentId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AppointmentId"));
+
+                    b.Property<DateTime>("AppointmentDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<int>("EmployeeId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ScheduleId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("AppointmentId");
+
+                    b.HasIndex("UserId");
+
+                    b.HasIndex("EmployeeId", "ProductId");
+
+                    b.HasIndex("EmployeeId", "ScheduleId");
+
+                    b.ToTable("Appointments");
+                });
+
             modelBuilder.Entity("Entities.Models.Category", b =>
                 {
                     b.Property<int>("CategoryId")
@@ -157,10 +192,12 @@ namespace HairArt.Migrations
             modelBuilder.Entity("Entities.Models.EmployeeSchedule", b =>
                 {
                     b.Property<int>("EmployeeId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(0);
 
                     b.Property<int>("ScheduleId")
-                        .HasColumnType("int");
+                        .HasColumnType("int")
+                        .HasColumnOrder(1);
 
                     b.HasKey("EmployeeId", "ScheduleId");
 
@@ -353,6 +390,33 @@ namespace HairArt.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Entities.Models.Appointment", b =>
+                {
+                    b.HasOne("Entities.Models.ApplicationUser", "User")
+                        .WithMany("Appointments")
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.EmployeeProduct", "EmployeeProduct")
+                        .WithMany("Appointments")
+                        .HasForeignKey("EmployeeId", "ProductId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.HasOne("Entities.Models.EmployeeSchedule", "EmployeeSchedule")
+                        .WithMany("Appointments")
+                        .HasForeignKey("EmployeeId", "ScheduleId")
+                        .OnDelete(DeleteBehavior.Restrict)
+                        .IsRequired();
+
+                    b.Navigation("EmployeeProduct");
+
+                    b.Navigation("EmployeeSchedule");
+
+                    b.Navigation("User");
+                });
+
             modelBuilder.Entity("Entities.Models.EmployeeProduct", b =>
                 {
                     b.HasOne("Entities.Models.Employee", "Employee")
@@ -383,7 +447,7 @@ namespace HairArt.Migrations
                     b.HasOne("Entities.Models.Schedule", "Schedule")
                         .WithMany("EmployeeSchedules")
                         .HasForeignKey("ScheduleId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Employee");
@@ -453,6 +517,11 @@ namespace HairArt.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("Entities.Models.ApplicationUser", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
             modelBuilder.Entity("Entities.Models.Category", b =>
                 {
                     b.Navigation("Products");
@@ -463,6 +532,16 @@ namespace HairArt.Migrations
                     b.Navigation("EmployeeProducts");
 
                     b.Navigation("EmployeeSchedules");
+                });
+
+            modelBuilder.Entity("Entities.Models.EmployeeProduct", b =>
+                {
+                    b.Navigation("Appointments");
+                });
+
+            modelBuilder.Entity("Entities.Models.EmployeeSchedule", b =>
+                {
+                    b.Navigation("Appointments");
                 });
 
             modelBuilder.Entity("Entities.Models.Product", b =>

@@ -26,11 +26,16 @@ public class EmployeeProductManager : IEmployeeProductService
 
    
     
+ public IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges)
+    {
+        return _manager.EmployeeProduct.GetProductsByEmployeeId(employeeId, trackChanges);
+    }
 
-    public IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges) =>
-        _manager.EmployeeProduct.GetProductsByEmployeeId(employeeId, trackChanges);
+    public IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges)
+    {
+        return _manager.EmployeeProduct.GetEmployeesByProductId(productId, trackChanges);
+    }
 
-    public IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges) =>
-        _manager.EmployeeProduct.GetEmployeesByProductId(productId, trackChanges);
+
 
 }

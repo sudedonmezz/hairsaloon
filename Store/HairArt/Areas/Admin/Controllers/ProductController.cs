@@ -37,6 +37,7 @@ public class ProductController : Controller
     [ValidateAntiForgeryToken]
     public IActionResult Create([FromForm]Product product)
     {
+       
         if(ModelState.IsValid)
         {
              _manager.ProductService.CreateProduct(product);
@@ -62,6 +63,7 @@ public class ProductController : Controller
 [ValidateAntiForgeryToken]
     public IActionResult Update(Product product)
     {
+        
         if(ModelState.IsValid)
         {
             _manager.ProductService.UpdateOneProduct(product);

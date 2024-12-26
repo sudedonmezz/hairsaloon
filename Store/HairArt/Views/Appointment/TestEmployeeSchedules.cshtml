@@ -1,0 +1,32 @@
+@model IEnumerable<Entities.Models.EmployeeSchedule>
+
+<h2>Employee Schedules Test Page</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Employee Name</th>
+            <th>Schedule Start</th>
+            <th>Schedule End</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            @foreach (var employeeSchedule in Model)
+            {
+                <tr>
+                    <td>@($"{employeeSchedule.Employee?.FirstName} {employeeSchedule.Employee?.LastName}")</td>
+                    <td>@employeeSchedule.Schedule?.StartDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                    <td>@employeeSchedule.Schedule?.EndDateTime.ToString("yyyy-MM-dd HH:mm")</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">No data available</td>
+            </tr>
+        }
+    </tbody>
+</table>

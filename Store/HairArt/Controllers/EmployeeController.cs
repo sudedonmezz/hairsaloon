@@ -28,6 +28,7 @@ public class EmployeeController : Controller
     public IActionResult GetByCategory(int categoryId)
     {
         // Sadece available (IsAvailable = true) çalışanları getiriyoruz
+        ViewBag.ProductId = categoryId;
     var employees = _serviceManager.EmployeeService
         .GetEmployeesByCategoryId(categoryId, trackChanges: false)
         .Where(e => e.IsAvailable)
@@ -66,6 +67,28 @@ public class EmployeeController : Controller
 
     return View("GetByProduct", employees);
 }
+
+// EmployeeController.cs
+[HttpGet]
+public IActionResult ViewEmployeeSchedules()
+{
+    var employeeSchedules = _serviceManager.EmployeeScheduleService
+        .GetAllEmployeeSchedules(trackChanges: false)
+        .Where(es => es.Employee != null && es.Schedule != null) // Null kontrolleri
+        .Select(es => new
+        {
+            es.Employee.EmployeeId,
+            es.Employee.FirstName,
+            es.Employee.LastName,
+            es.Schedule.ScheduleId,
+            es.Schedule.StartDateTime,
+            es.Schedule.EndDateTime
+        })
+        .ToList();
+
+    return View(employeeSchedules);
+}
+
 
 
 

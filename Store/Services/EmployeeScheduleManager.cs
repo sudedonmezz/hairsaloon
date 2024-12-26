@@ -17,4 +17,10 @@ public class EmployeeScheduleManager : IEmployeeScheduleService
  
     public EmployeeSchedule? GetEmployeeSchedule(int employeeId, int scheduleId, bool trackChanges) =>
         _manager.EmployeeSchedule.GetEmployeeSchedule(employeeId, scheduleId, trackChanges);
+
+        public IEnumerable<EmployeeSchedule> GetSchedulesByEmployee(int employeeId, bool trackChanges) =>
+        _manager.EmployeeSchedule.GetSchedulesByEmployee(employeeId, trackChanges);
+     
+
+
 }

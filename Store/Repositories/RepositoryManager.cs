@@ -17,8 +17,11 @@ public class RepositoryManager :IRepositoryManager
     private readonly IEmployeeProductRepository _employeeProductRepository;
 
     private readonly IEmployeeScheduleRepository _employeescheduleRepository;
-    public RepositoryManager(IProductRepository productRepository,RepositoryContext context,ICategoryRepository categoryRepository,IEmployeeRepository employeeRepository,IScheduleRepository scheduleRepository,IEmployeeScheduleRepository employeescheduleRepository,IEmployeeProductRepository employeeProductRepository)
+
+    private readonly IAppointmentRepository _appointmentRepository;
+    public RepositoryManager(IProductRepository productRepository,RepositoryContext context,ICategoryRepository categoryRepository,IEmployeeRepository employeeRepository,IScheduleRepository scheduleRepository,IEmployeeScheduleRepository employeescheduleRepository,IEmployeeProductRepository employeeProductRepository,IAppointmentRepository appointmentRepository)
     {
+        _appointmentRepository=appointmentRepository;
         _employeeProductRepository=employeeProductRepository;
         _employeescheduleRepository=employeescheduleRepository;
         _scheduleRepository= scheduleRepository;
@@ -36,6 +39,8 @@ public class RepositoryManager :IRepositoryManager
     public IEmployeeScheduleRepository EmployeeSchedule=> _employeescheduleRepository;
 
       public IEmployeeProductRepository EmployeeProduct=> _employeeProductRepository;
+
+      public IAppointmentRepository Appointment => _appointmentRepository;
     
 
     public void Save()

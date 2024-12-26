@@ -1,0 +1,18 @@
+@model HairArt.ViewModels.ConfirmAppointmentViewModel
+
+<h2>Confirm Your Appointment</h2>
+
+<p>Product: @Model.Product.ProductName</p>
+<p>Employee: @($"{Model.Employee.FirstName} {Model.Employee.LastName}")</p>
+<p>Schedule: @($"{Model.Schedule.StartDateTime} - {Model.Schedule.EndDateTime}")</p>
+
+<form asp-action="ConfirmAppointment" method="post">
+    <input type="hidden" name="ProductId" value="@Model.Product.ProductId" />
+    <input type="hidden" name="EmployeeId" value="@Model.Employee.EmployeeId" />
+    <input type="hidden" name="ScheduleId" value="@Model.Schedule.ScheduleId" />
+
+    <label for="SelectedTime">Select Appointment Time (09:00 - 17:00):</label>
+    <input type="time" id="SelectedTime" name="SelectedTime" required />
+
+    <button type="submit">Confirm Appointment</button>
+</form>

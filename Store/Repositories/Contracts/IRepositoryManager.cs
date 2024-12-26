@@ -13,5 +13,7 @@ public interface IRepositoryManager
 
     IEmployeeProductRepository EmployeeProduct { get; }
 
+    IAppointmentRepository Appointment { get; }
+
     void Save();
 }

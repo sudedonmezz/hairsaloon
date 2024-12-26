@@ -16,8 +16,10 @@ public class ServiceManager : IServiceManager
 
     private readonly IAuthService _authService;
 
-    public ServiceManager(IProductService productService, ICategoryService categoryService, IEmployeeService employeeService,IScheduleService scheduleService,IEmployeeScheduleService employeescheduleService,IEmployeeProductService employeeProductService,IAuthService authService)
+    private readonly IAppointmentService _appointmentService;
+    public ServiceManager(IProductService productService, ICategoryService categoryService, IEmployeeService employeeService,IScheduleService scheduleService,IEmployeeScheduleService employeescheduleService,IEmployeeProductService employeeProductService,IAuthService authService,IAppointmentService appointmentService)
     {
+        _appointmentService=appointmentService;
         _authService=authService;
         _employeeProductService= employeeProductService;
         _employeescheduleService= employeescheduleService;
@@ -40,6 +42,8 @@ public class ServiceManager : IServiceManager
     public IEmployeeProductService EmployeeProductService => _employeeProductService;
 
     public IAuthService AuthService => _authService;
+
+    public IAppointmentService AppointmentService=>_appointmentService;
 
 
 }

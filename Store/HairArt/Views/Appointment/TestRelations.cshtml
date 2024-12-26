@@ -1,0 +1,29 @@
+@model IEnumerable<Entities.Models.Appointment>
+
+<h2>Appointment Test Page</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Appointment ID</th>
+            <th>User</th>
+            <th>Employee</th>
+            <th>Product</th>
+            <th>Schedule</th>
+            <th>Appointment Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var appointment in Model)
+        {
+            <tr>
+                <td>@appointment.AppointmentId</td>
+                <td>@($"{appointment.User.Name} {appointment.User.LastName}")</td>
+                <td>@($"{appointment.EmployeeProduct?.Employee?.FirstName} {appointment.EmployeeProduct?.Employee?.LastName}")</td>
+                <td>@appointment.EmployeeProduct?.Product?.ProductName</td>
+                <td>@($"{appointment.EmployeeSchedule?.Schedule?.StartDateTime} - {appointment.EmployeeSchedule?.Schedule?.EndDateTime}")</td>
+                <td>@appointment.AppointmentDate.ToString("yyyy-MM-dd HH:mm")</td>
+            </tr>
+        }
+    </tbody>
+</table>

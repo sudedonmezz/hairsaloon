@@ -1,0 +1,17 @@
+@model HairArt.ViewModels.SelectProductViewModel
+
+<h2>Randevu Sistemi</h2>
+<p>Kullanıcı: @Model.UserName</p>
+<p>Email: @Model.UserEmail</p>
+<p>Telefon: @Model.UserPhoneNumber</p>
+
+<form method="post">
+    <label for="product">Ürün Seçin:</label>
+    <select id="product" name="productId" required>
+        @foreach (var product in Model.Products)
+        {
+            <option value="@product.ProductId">@product.ProductName</option>
+        }
+    </select>
+    <button type="submit">İleri</button>
+</form>

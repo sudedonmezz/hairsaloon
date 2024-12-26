@@ -7,4 +7,6 @@ public class Schedule
     public DateTime EndDateTime { get; set; }
 
     public ICollection<EmployeeSchedule> EmployeeSchedules { get; set; } = new List<EmployeeSchedule>();
+    
+
 }

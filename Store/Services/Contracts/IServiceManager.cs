@@ -14,4 +14,6 @@ public interface IServiceManager
     IEmployeeProductService EmployeeProductService { get; }
 
     IAuthService AuthService { get; }
+
+    IAppointmentService AppointmentService { get; }
 }

@@ -54,6 +54,8 @@ builder.Services.AddScoped<IEmployeeScheduleRepository,EmployeeScheduleRepositor
 builder.Services.AddScoped<IEmployeeProductRepository, EmployeeProductRepository>();
 builder.Services.AddScoped<UserManager<ApplicationUser>>();
 builder.Services.AddScoped<SignInManager<ApplicationUser>>();
+builder.Services.AddScoped<IAppointmentRepository, AppointmentRepository>();
+
 
 
 builder.Services.AddScoped<IServiceManager,ServiceManager>();
@@ -63,6 +65,7 @@ builder.Services.AddScoped<IEmployeeService,EmployeeManager>();
 builder.Services.AddScoped<IScheduleService,ScheduleManager>();
 builder.Services.AddScoped<IEmployeeScheduleService,EmployeeScheduleManager>();
 builder.Services.AddScoped<IEmployeeProductService, EmployeeProductManager>();
+builder.Services.AddScoped<IAppointmentService, AppointmentManager>();
 builder.Services.AddScoped<IAuthService,AuthManager>();
 builder.Services.AddAutoMapper(typeof(MappingProfile));
 

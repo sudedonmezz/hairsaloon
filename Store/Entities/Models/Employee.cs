@@ -8,7 +8,7 @@ public int EmployeeId { get; set; }
     public bool IsAvailable { get; set; } = true;
 
     
-  
+
     public ICollection<EmployeeProduct> EmployeeProducts { get; set; } = new List<EmployeeProduct>(); // Many-to-Many Relationship
     public ICollection<EmployeeSchedule> EmployeeSchedules { get; set; } = new List<EmployeeSchedule>();
 }

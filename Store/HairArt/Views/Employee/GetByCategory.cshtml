@@ -25,7 +25,12 @@
                         <p class="card-text text-success">
                             Available
                         </p>
-                        <a href="/" class="btn btn-brand mt-auto">Randevu Al!</a>
+                        <a asp-controller="Appointment" 
+                           asp-action="CreateAppointment" 
+                           asp-route-id="@employee.EmployeeId" 
+                           class="btn btn-brand">
+                           Randevu Al
+                        </a>
                     </div>
                 </div>
             </div>

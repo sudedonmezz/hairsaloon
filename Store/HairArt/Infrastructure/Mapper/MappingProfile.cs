@@ -24,10 +24,7 @@ public class MappingProfile : Profile
     .ReverseMap();
 
 
-    
-   
-
-
+             
         }
 
         
