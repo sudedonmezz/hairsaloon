@@ -30,6 +30,9 @@ public class ProductManager : IProductService
         _manager.Save();
     }
 
+    public IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges) =>
+        _manager.Product.GetProductsByCategoryId(categoryId, trackChanges);
+
     public void UpdateOneProduct(Product product)
     {
         var entity=_manager.Product.GetOneProduct(product.ProductId,true);

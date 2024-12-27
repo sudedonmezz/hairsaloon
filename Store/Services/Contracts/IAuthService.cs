@@ -19,5 +19,7 @@ namespace Services.Contracts;
 
           Task<IdentityResult> DeleteOneUser(string email);
 
+        Task<bool> HasAppointments(string userId);
+
     }
 

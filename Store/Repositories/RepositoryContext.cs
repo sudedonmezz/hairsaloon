@@ -33,6 +33,16 @@ protected override void OnModelCreating(ModelBuilder modelBuilder)
     modelBuilder.Entity<EmployeeProduct>()
         .HasKey(ep => new { ep.EmployeeId, ep.ProductId });
 
+
+
+      modelBuilder.Entity<Appointment>()
+    .HasOne(a => a.Category)
+    .WithMany(c => c.Appointments)
+    .HasForeignKey(a => a.CategoryId)
+    .OnDelete(DeleteBehavior.Restrict);
+
+
+
     // Appointment ile EmployeeProduct ilişkisi
     modelBuilder.Entity<Appointment>()
         .HasOne(a => a.EmployeeProduct)

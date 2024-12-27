@@ -19,23 +19,38 @@ namespace HairArt.Controllers
             _userManager = userManager;
         }
 
-        // 1. Ürün seçimi
+        // 1. Kategori seçimi
         [HttpGet]
-        public async Task<IActionResult> SelectProduct()
+        public async Task<IActionResult> SelectCategory()
         {
             var user = await _userManager.GetUserAsync(User);
-            var products = _serviceManager.ProductService.GetAllProducts(false);
+            var categories = _serviceManager.CategoryService.GetAllCategories(false);
 
-            if (user == null || products == null)
-            {
-                return RedirectToAction("Error");
-            }
-
-            var viewModel = new SelectProductViewModel
+            var viewModel = new SelectCategoryViewModel
             {
                 UserName = $"{user.Name} {user.LastName}",
                 UserEmail = user.Email,
                 UserPhoneNumber = user.PhoneNumber,
+                Categories = categories
+            };
+
+            return View(viewModel);
+        }
+
+        [HttpPost]
+        public IActionResult SelectCategory(int categoryId)
+        {
+            return RedirectToAction("SelectProduct", new { categoryId });
+        }
+
+        // 2. Ürün seçimi
+        [HttpGet]
+        public IActionResult SelectProduct(int categoryId)
+        {
+            var products = _serviceManager.ProductService.GetProductsByCategoryId(categoryId, false);
+
+            var viewModel = new SelectProductViewModel
+            {
                 Products = products
             };
 
@@ -43,24 +58,19 @@ namespace HairArt.Controllers
         }
 
         [HttpPost]
-        public IActionResult SelectProduct(int productId)
+        public IActionResult SelectProduct(int categoryId, int productId)
         {
-            return RedirectToAction("SelectEmployee", new { productId });
+            return RedirectToAction("SelectEmployee", new { categoryId, productId });
         }
 
-        // 2. Çalışan seçimi
+        // 3. Çalışan seçimi
         [HttpGet]
-        public IActionResult SelectEmployee(int productId)
+        public IActionResult SelectEmployee(int categoryId, int productId)
         {
             var employees = _serviceManager.EmployeeProductService.GetEmployeesByProductId(productId, false)
                 .Where(ep => ep.Employee != null && ep.Employee.IsAvailable)
                 .Select(ep => ep.Employee)
                 .ToList();
-
-            if (employees == null || !employees.Any())
-            {
-                return RedirectToAction("Error");
-            }
 
             var viewModel = new SelectEmployeeViewModel
             {
@@ -68,27 +78,23 @@ namespace HairArt.Controllers
                 Employees = employees
             };
 
+            ViewBag.CategoryId = categoryId;
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult SelectEmployee(int productId, int employeeId)
+        public IActionResult SelectEmployee(int categoryId, int productId, int employeeId)
         {
-            return RedirectToAction("SelectSchedule", new { productId, employeeId });
+            return RedirectToAction("SelectSchedule", new { categoryId, productId, employeeId });
         }
 
-        // 3. Takvim seçimi
+        // 4. Takvim seçimi
         [HttpGet]
-        public IActionResult SelectSchedule(int productId, int employeeId)
+        public IActionResult SelectSchedule(int categoryId, int productId, int employeeId)
         {
             var schedules = _serviceManager.EmployeeScheduleService.GetSchedulesByEmployee(employeeId, false)
                 .Select(es => es.Schedule)
                 .ToList();
-
-            if (schedules == null || !schedules.Any())
-            {
-                return RedirectToAction("Error");
-            }
 
             var viewModel = new SelectScheduleViewModel
             {
@@ -97,43 +103,47 @@ namespace HairArt.Controllers
                 Schedules = schedules
             };
 
+            ViewBag.CategoryId = categoryId;
             return View(viewModel);
         }
 
         [HttpPost]
-        public IActionResult SelectSchedule(int productId, int employeeId, int scheduleId)
+        public IActionResult SelectSchedule(int categoryId, int productId, int employeeId, int scheduleId)
         {
-            return RedirectToAction("ConfirmAppointment", new { productId, employeeId, scheduleId });
+            return RedirectToAction("ConfirmAppointment", new { categoryId, productId, employeeId, scheduleId });
         }
 
-    [HttpGet]
-public async Task<IActionResult> ConfirmAppointment(int productId, int employeeId, int scheduleId)
+  [HttpGet]
+public async Task<IActionResult> ConfirmAppointment(int categoryId, int productId, int employeeId, int scheduleId)
 {
+    var category = _serviceManager.CategoryService.GetCategoryById(categoryId, false);
     var product = _serviceManager.ProductService.GetOneProduct(productId, false);
     var employee = _serviceManager.EmployeeService.GetEmployeeById(employeeId, false);
     var schedule = _serviceManager.ScheduleService.GetScheduleById(scheduleId, false);
     var user = await _userManager.GetUserAsync(User);
 
-    if (product == null || employee == null || schedule == null || user == null)
+    if (category == null || product == null || employee == null || schedule == null)
     {
         return RedirectToAction("Error");
     }
 
     var viewModel = new ConfirmAppointmentViewModel
     {
+        UserName = $"{user.Name} {user.LastName}",
+        Category = category,
         Product = product,
         Employee = employee,
         Schedule = schedule,
-        AppointmentDate = DateTime.Now,
-        UserName = user.Email // Kullanıcının emailini atıyoruz
+        AppointmentDate = schedule.StartDateTime
     };
 
     return View(viewModel);
 }
 
 
+
 [HttpPost]
-public IActionResult ConfirmAppointment(int productId, int employeeId, int scheduleId, string selectedTime)
+public IActionResult ConfirmAppointment(ConfirmAppointmentViewModel model)
 {
     var user = _userManager.GetUserAsync(User).Result;
     if (user == null)
@@ -141,31 +151,14 @@ public IActionResult ConfirmAppointment(int productId, int employeeId, int sched
         return RedirectToAction("Error");
     }
 
-    // Saat doğrulaması
-    if (!TimeSpan.TryParse(selectedTime, out var parsedTime) ||
-        parsedTime < TimeSpan.FromHours(9) ||
-        parsedTime > TimeSpan.FromHours(17))
-    {
-        ModelState.AddModelError(string.Empty, "Please select a time between 09:00 and 17:00.");
-        return View(new ConfirmAppointmentViewModel
-        {
-            Product = _serviceManager.ProductService.GetOneProduct(productId, false),
-            Employee = _serviceManager.EmployeeService.GetEmployeeById(employeeId, false),
-            Schedule = _serviceManager.ScheduleService.GetScheduleById(scheduleId, false)
-        });
-    }
-
-    // AppointmentDate oluşturma
-    var appointmentDate = DateTime.Now.Date.Add(parsedTime); // Güncel tarihe seçilen saati ekle
-
-    // Appointment nesnesini oluştur ve kaydet
     var appointment = new Appointment
     {
         UserId = user.Id,
-        EmployeeId = employeeId,
-        ProductId = productId,
-        ScheduleId = scheduleId,
-        AppointmentDate = appointmentDate
+        EmployeeId = model.EmployeeId,
+        ProductId = model.ProductId,
+        ScheduleId = model.ScheduleId,
+        CategoryId = model.CategoryId,
+        AppointmentDate = DateTime.Now
     };
 
     _serviceManager.AppointmentService.CreateAppointment(appointment);
@@ -173,11 +166,12 @@ public IActionResult ConfirmAppointment(int productId, int employeeId, int sched
     return RedirectToAction("AppointmentSuccess");
 }
 
-[HttpGet]
-public IActionResult AppointmentSuccess()
-{
-    return View();
-}
 
+        // Başarılı randevu
+        [HttpGet]
+        public IActionResult AppointmentSuccess()
+        {
+            return View();
+        }
     }
 }

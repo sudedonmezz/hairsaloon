@@ -7,6 +7,9 @@ public interface IProductService
 
     Product? GetOneProduct(int id,bool trackChanges);
 
+     IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges);
+
+
     void CreateProduct(Product product);
 
     void UpdateOneProduct(Product product);

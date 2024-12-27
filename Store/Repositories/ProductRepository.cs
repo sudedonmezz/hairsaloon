@@ -20,6 +20,9 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
 
     public void DeleteOneProduct(Product product) =>Remove(product);
 
+     public IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges) =>
+        FindByCondition(p => p.CategoryId == categoryId, trackChanges).ToList();
+
   
 
     

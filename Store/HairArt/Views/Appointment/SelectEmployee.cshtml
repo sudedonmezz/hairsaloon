@@ -1,15 +1,17 @@
 @model HairArt.ViewModels.SelectEmployeeViewModel
 
-<h2>Çalışan Seçimi</h2>
+<h2>Çalışan Seç</h2>
 
+<div class="form-group">
 <form method="post">
-    <input type="hidden" name="productId" value="@Model.ProductId" />
     <label for="employee">Çalışan Seçin:</label>
-    <select id="employee" name="employeeId" required>
+    <select class="form-select" id="employee" name="EmployeeId" required>
         @foreach (var employee in Model.Employees)
         {
-            <option value="@employee.EmployeeId">@($"{employee.FirstName} {employee.LastName}")</option>
+            <option value="@employee.EmployeeId">@employee.FirstName @employee.LastName</option>
         }
     </select>
-    <button type="submit">İleri</button>
+    
+    <button class="btn btn-brand"type="submit">Devam</button>
 </form>
+</div>

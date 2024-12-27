@@ -13,6 +13,10 @@ namespace Services
             _repository = repository;
         }
 
+         public IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges)
+        {
+            return _repository.Appointment.GetProductsByCategoryId(categoryId, trackChanges);
+        }
         public IEnumerable<Appointment> GetAllAppointments(bool trackChanges) =>
             _repository.Appointment.GetAllAppointments(trackChanges);
 
@@ -31,5 +35,17 @@ namespace Services
 
         public void DeleteAppointment(Appointment appointment) =>
             _repository.Appointment.DeleteAppointment(appointment);
+
+
+            public bool UserHasAppointments(string userId)
+            {
+    return _repository.Appointment.HasAppointments(userId);
+            }
+
+            public IEnumerable<Appointment> GetAppointmentsByUserId(string userId, bool trackChanges)
+    {
+        return _repository.Appointment.GetAppointmentsByUserId(userId, trackChanges);
+    }
+
     }
 }

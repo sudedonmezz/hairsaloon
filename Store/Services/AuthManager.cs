@@ -12,10 +12,15 @@ public class AuthManager :IAuthService
     private readonly RoleManager<IdentityRole> _roleManager;
     private readonly UserManager<ApplicationUser> _userManager;
 
+   
+
     private readonly IMapper _mapper;
 
-    public AuthManager(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager,IMapper mapper)
+     private readonly IAppointmentService _appointmentService;
+
+    public AuthManager(RoleManager<IdentityRole> roleManager,UserManager<ApplicationUser> userManager,IMapper mapper,IAppointmentService appointmentService)
     {
+       _appointmentService=appointmentService;
         _mapper=mapper;
         _userManager=userManager;
         _roleManager = roleManager;
@@ -158,5 +163,12 @@ public async Task<IEnumerable<string>> GetOneUserRoles(string email)
             return await _userManager.DeleteAsync(user);
          }
 
+         
+ public async Task<bool> HasAppointments(string userId)
+        {
+            var appointments = _appointmentService.GetAppointmentsByUserId(userId, trackChanges: false);
+            return appointments.Any();
+        }
+    
 
 }

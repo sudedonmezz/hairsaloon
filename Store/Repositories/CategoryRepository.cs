@@ -8,4 +8,9 @@ public class CategoryRepository : RepositoryBase<Category>, ICategoryRepository
     {
         
     }
+
+     public Category? GetCategoryById(int categoryId, bool trackChanges)
+    {
+        return FindByCondition(c => c.CategoryId == categoryId, trackChanges).SingleOrDefault();
+    }
 }

@@ -118,17 +118,48 @@ return View(new ResetPasswordDto()
     : View();
     }
 
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<ActionResult> DeleteOneUser([FromForm]UserDto userDto)
+  [HttpPost]
+[ValidateAntiForgeryToken]
+public async Task<ActionResult> DeleteOneUser([FromForm] UserDto userDto)
+{
+    try
     {
-        var result = await _manager
-        .AuthService
-        .DeleteOneUser(userDto.Email);
+        // Kullanıcı bilgilerini al
+        var user = await _manager.AuthService.GetOneUser(userDto.Email);
 
-        return result.Succeeded
-        ? RedirectToAction("Index")
-        : View();
+        if (user == null)
+        {
+            TempData["ErrorMessage"] = "Kullanıcı bulunamadı.";
+            return RedirectToAction("Index");
+        }
+
+        // Kullanıcının randevuları olup olmadığını kontrol et
+        var hasAppointments = await _manager.AuthService.HasAppointments(user.Id);
+
+        if (hasAppointments)
+        {
+            TempData["ErrorMessage"] = "Bu kullanıcıya ait randevular mevcut. Silme işlemi gerçekleştirilemiyor.";
+            return RedirectToAction("Index");
+        }
+
+        // Kullanıcıyı sil
+        var result = await _manager.AuthService.DeleteOneUser(userDto.Email);
+
+        if (result.Succeeded)
+        {
+            TempData["SuccessMessage"] = "Kullanıcı başarıyla silindi.";
+            return RedirectToAction("Index");
+        }
+
+        TempData["ErrorMessage"] = "Kullanıcı silinirken bir hata oluştu.";
+        return RedirectToAction("Index");
     }
+    catch (Exception ex)
+    {
+        TempData["ErrorMessage"] = $"Hata: {ex.Message}";
+        return RedirectToAction("Index");
+    }
+}
+
 
 }

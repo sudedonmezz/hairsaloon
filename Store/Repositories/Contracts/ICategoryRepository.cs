@@ -4,5 +4,5 @@ namespace Repositories.Contracts;
 
 public interface ICategoryRepository : IRepositoryBase<Category>
 {
-    
+   Category? GetCategoryById(int categoryId, bool trackChanges);
 }

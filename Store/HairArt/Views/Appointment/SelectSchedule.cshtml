@@ -1,18 +1,15 @@
 @model HairArt.ViewModels.SelectScheduleViewModel
 
-<h2>Takvim Seçimi</h2>
+<h2>Takvim Seç</h2>
+
 
 <form method="post">
-    <input type="hidden" name="productId" value="@Model.ProductId" />
-    <input type="hidden" name="employeeId" value="@Model.EmployeeId" />
-    <label for="schedule">Takvim Seçin:</label>
-    <select id="schedule" name="scheduleId" required>
+    <label for="schedule">Uygun Tarih ve Saat Seçin:</label>
+    <select class="form-select" id="schedule" name="ScheduleId" required>
         @foreach (var schedule in Model.Schedules)
         {
-            <option value="@schedule.ScheduleId">
-                @($"{schedule.StartDateTime:yyyy-MM-dd HH:mm} - {schedule.EndDateTime:yyyy-MM-dd HH:mm}")
-            </option>
+            <option value="@schedule.ScheduleId">@schedule.StartDateTime.ToString("dd/MM/yyyy HH:mm") - @schedule.EndDateTime.ToString("HH:mm")</option>
         }
     </select>
-    <button type="submit">İleri</button>
+    <button class="btn btn-brand"type="submit">Devam</button>
 </form>

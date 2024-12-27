@@ -15,4 +15,10 @@ public class CategoryManager : ICategoryService
     {
         return _manager.Category.FindAll(trackChanges);
     }
+
+    public Category? GetCategoryById(int categoryId, bool trackChanges)
+    {
+        return _manager.Category.FindByCondition(c => c.CategoryId == categoryId, trackChanges)
+                                                    .SingleOrDefault();
+    }
 }

@@ -11,4 +11,7 @@ public interface IProductRepository : IRepositoryBase<Product>
 
     void DeleteOneProduct(Product product);
 
+    // Kategorisine göre ürünleri getiren yeni metot
+    IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges);
+
 }

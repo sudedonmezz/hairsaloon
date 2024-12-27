@@ -5,6 +5,21 @@
         <div class="display-6">Users</div>
         <a class="btn btn-outline-info" asp-action="Create">Create</a>
     </div>
+
+    @if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Hata:</strong> @TempData["ErrorMessage"]
+    </div>
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Başarılı:</strong> @TempData["SuccessMessage"]
+    </div>
+}
+
 <table class="table table-striped">
     <thead>
         <tr>

@@ -10,5 +10,5 @@ public class Category
   
     public ICollection<Product> Products { get; set; } //Collection navigation property
     
-
+     public ICollection<Appointment>? Appointments { get; set; } // Çalışan-takvim randevuları
 }
