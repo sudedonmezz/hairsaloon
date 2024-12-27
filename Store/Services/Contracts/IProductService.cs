@@ -15,4 +15,6 @@ public interface IProductService
     void UpdateOneProduct(Product product);
 
     void DeleteOneProduct(int id);
+
+    bool HasAppointmentsForProduct(int productId);
 }

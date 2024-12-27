@@ -23,7 +23,14 @@ public class ProductRepository : RepositoryBase<Product>, IProductRepository
      public IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges) =>
         FindByCondition(p => p.CategoryId == categoryId, trackChanges).ToList();
 
+
+
   
+// Yeni Metot: Bir ürünün aktif randevuları olup olmadığını kontrol eder.
+public bool HasAppointmentsForProduct(int productId)
+{
+    return FindByCondition(a => a.ProductId == productId, trackChanges: false).Any();
+}
 
     
 }

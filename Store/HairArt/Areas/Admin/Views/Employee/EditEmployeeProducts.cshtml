@@ -1,0 +1,38 @@
+@model Entities.Models.Employee
+
+@{
+    ViewBag.Title = "Çalışan Ürünlerini Düzenle";
+    var allProducts = ViewBag.AllProducts as IEnumerable<Entities.Models.Product>;
+    var assignedProducts = ViewBag.AssignedProducts as List<int>;
+}
+
+<div class="container mt-5">
+    <h2>@Model.FirstName @Model.LastName için Ürünleri Düzenle</h2>
+
+    <form method="post" asp-action="EditEmployeeProducts">
+        <input type="hidden" name="employeeId" value="@Model.EmployeeId" />
+
+        <div class="form-group">
+            <label>Ürünler</label>
+            <div class="form-check">
+                @foreach (var product in allProducts)
+                {
+                    <div class="form-check">
+                        <input 
+                            type="checkbox" 
+                            name="productIds" 
+                            value="@product.ProductId" 
+                            class="form-check-input" 
+                            id="product_@product.ProductId"
+                            @(assignedProducts != null && assignedProducts.Contains(product.ProductId) ? "checked" : "") />
+                        <label class="form-check-label" for="product_@product.ProductId">
+                            @product.ProductName
+                        </label>
+                    </div>
+                }
+            </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary mt-3">Kaydet</button>
+    </form>
+</div>

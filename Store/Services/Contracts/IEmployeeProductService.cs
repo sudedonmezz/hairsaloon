@@ -7,4 +7,6 @@ public interface IEmployeeProductService
     
     IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges);
     IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges);
+
+     void UpdateEmployeeProducts(int employeeId, List<int> productIds);
 }

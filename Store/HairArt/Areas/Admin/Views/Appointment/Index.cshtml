@@ -35,10 +35,10 @@
             {
                 <tr>
                     <td>@appointment.Category?.CategoryName </td>
-                    <td>@appointment.EmployeeProduct?.Product?.ProductName </td>
+                    <td>@appointment.EmployeeProduct?.Product?.ProductName  </td>
                     <td>@appointment.EmployeeProduct?.Product?.ProductPrice </td>
                     <td>@appointment.EmployeeProduct?.Product?.Duration </td>
-                    <td>@appointment.EmployeeProduct?.Employee?.EmployeeId</td>
+                    <td>@appointment.EmployeeProduct?.Employee?.FirstName @appointment.EmployeeProduct?.Employee?.LastName</td>
                     <td>@($"{appointment.EmployeeSchedule?.Schedule?.StartDateTime} - {appointment.EmployeeSchedule?.Schedule?.EndDateTime}" ?? "N/A")</td>
                     <td>@($"{appointment.User?.Name} {appointment.User?.LastName}" ?? "N/A")</td>
                     <td>@appointment.IsApproved</td>

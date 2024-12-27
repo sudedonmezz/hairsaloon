@@ -11,6 +11,8 @@ public interface IProductRepository : IRepositoryBase<Product>
 
     void DeleteOneProduct(Product product);
 
+    bool HasAppointmentsForProduct(int productId);
+
     // Kategorisine göre ürünleri getiren yeni metot
     IEnumerable<Product> GetProductsByCategoryId(int categoryId, bool trackChanges);
 

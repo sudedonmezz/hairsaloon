@@ -74,9 +74,22 @@ public class ProductController : Controller
     }
 
     [HttpGet]
-    public IActionResult Delete([FromRoute(Name="id")]int id)
+public IActionResult Delete([FromRoute(Name = "id")] int id)
+{
+    // Ürünün randevularla ilişkilendirilip ilişkilendirilmediğini kontrol et
+    bool hasAppointments = _manager.ProductService.HasAppointmentsForProduct(id);
+
+    if (hasAppointments)
     {
-        _manager.ProductService.DeleteOneProduct(id);
+        // TempData ile kullanıcıya mesaj ilet
+        TempData["ErrorMessage"] = "Bu ürün, mevcut randevularla ilişkilendirilmiştir ve silinemez.";
         return RedirectToAction("Index");
     }
+
+    // Eğer randevularla ilişkisi yoksa ürünü sil
+    _manager.ProductService.DeleteOneProduct(id);
+    TempData["SuccessMessage"] = "Ürün başarıyla silindi.";
+    return RedirectToAction("Index");
+}
+
 }

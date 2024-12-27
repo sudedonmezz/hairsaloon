@@ -8,4 +8,6 @@ public interface IEmployeeProductRepository : IRepositoryBase<EmployeeProduct>
     IEnumerable<EmployeeProduct> GetAllEmployeeProducts(bool trackChanges);
     IEnumerable<EmployeeProduct> GetProductsByEmployeeId(int employeeId, bool trackChanges);
     IEnumerable<EmployeeProduct> GetEmployeesByProductId(int productId, bool trackChanges);
+
+     
 }

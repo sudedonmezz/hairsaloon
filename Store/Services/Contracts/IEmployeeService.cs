@@ -9,4 +9,16 @@ public interface IEmployeeService
 
     IEnumerable<Employee> GetEmployeesByProductId(int productId, bool trackChanges);
 
+    IEnumerable<Employee> GetAllEmployeesWithDetails(bool trackChanges);
+
+    void UpdateEmployeeProducts(int employeeId, List<int> productIds);
+    Employee GetEmployeeWithProducts(int employeeId, bool trackChanges);
+
+    public void DeleteEmployee(int employeeId);
+
+    public bool HasAppointmentsForEmployee(int employeeId);
+
+
+
+
 }

@@ -11,4 +11,12 @@ public interface IEmployeeRepository : IRepositoryBase<Employee>
 
     IEnumerable<Employee> GetEmployeesByProductId(int productId, bool trackChanges);
 
+    IEnumerable<Employee> GetAllEmployeesWithDetails(bool trackChanges);
+
+    Employee GetEmployeeWithProducts(int employeeId, bool trackChanges);
+
+    public bool HasAppointmentsForEmployee(int employeeId);
+
+    public void DeleteEmployee(int employeeId);
+
 }

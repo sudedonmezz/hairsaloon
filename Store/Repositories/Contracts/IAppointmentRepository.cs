@@ -14,6 +14,9 @@ namespace Repositories.Contracts
          // Kategorisine göre ürünleri getiren yeni metot
 
          IEnumerable<Appointment> GetAppointmentsByUserId(string userId, bool trackChanges);
+
+         public bool HasAppointmentsForProduct(int productId);
+
 }
     
         

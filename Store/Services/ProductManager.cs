@@ -56,4 +56,12 @@ public class ProductManager : IProductService
         }
         
     }
+
+    public bool HasAppointmentsForProduct(int productId)
+{
+    return _manager.Appointment.HasAppointmentsForProduct(productId);
+}
+
+
+
 }

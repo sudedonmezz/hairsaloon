@@ -37,4 +37,40 @@ public IEnumerable<Employee> GetEmployeesByProductId(int productId, bool trackCh
         .ToList();
 }
 
+ public IEnumerable<Employee> GetAllEmployeesWithDetails(bool trackChanges)
+    {
+        return FindAll(trackChanges)
+            .Include(e => e.EmployeeProducts)
+                .ThenInclude(ep => ep.Product)
+            .Include(e => e.EmployeeSchedules)
+                .ThenInclude(es => es.Schedule)
+            .ToList();
+    }
+
+
+    public Employee GetEmployeeWithProducts(int employeeId, bool trackChanges)
+{
+    return FindByCondition(e => e.EmployeeId == employeeId, trackChanges)
+        .Include(e => e.EmployeeProducts)
+            .ThenInclude(ep => ep.Product)
+        .SingleOrDefault();
+}
+
+public bool HasAppointmentsForEmployee(int employeeId)
+{
+    return _context.Appointments.Any(a => a.EmployeeId == employeeId);
+}
+
+public void DeleteEmployee(int employeeId)
+{
+    var employee = FindByCondition(e => e.EmployeeId == employeeId, trackChanges: false).FirstOrDefault();
+    if (employee != null)
+    {
+        Remove(employee);
+    }
+}
+
+
+
+
 }

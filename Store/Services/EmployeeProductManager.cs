@@ -37,5 +37,28 @@ public class EmployeeProductManager : IEmployeeProductService
     }
 
 
+    public void UpdateEmployeeProducts(int employeeId, List<int> productIds)
+    {
+        var existingProducts = _manager.EmployeeProduct.GetProductsByEmployeeId(employeeId, true).ToList();
+
+        // Silinmesi gereken ürünler
+        var toRemove = existingProducts.Where(ep => !productIds.Contains(ep.ProductId)).ToList();
+        foreach (var ep in toRemove)
+        {
+            _manager.EmployeeProduct.Remove(ep);
+        }
+
+        // Eklenmesi gereken ürünler
+        var toAdd = productIds.Where(pid => !existingProducts.Any(ep => ep.ProductId == pid))
+                              .Select(pid => new EmployeeProduct { EmployeeId = employeeId, ProductId = pid })
+                              .ToList();
+
+        foreach (var ep in toAdd)
+        {
+            _manager.EmployeeProduct.Create(ep);
+        }
+
+        _manager.Save();
+    }
 
 }
