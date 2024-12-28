@@ -1,5 +1,9 @@
 @model Entities.Models.Employee
 
+ <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6"></div>
+    </div>
 @{
     ViewBag.Title = "Edit Employee Schedules";
     var allSchedules = ViewBag.AllSchedules as List<Entities.Models.Schedule> ?? new List<Entities.Models.Schedule>();

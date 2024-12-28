@@ -60,7 +60,7 @@
                        @if (!appointment.IsApproved)
             {
                 <form asp-action="Approve" asp-controller="Employees" asp-route-id="@appointment.AppointmentId" method="post">
-                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                    <button type="submit" class="btn btn-success">Approve</button>
                 </form>
             }
                         

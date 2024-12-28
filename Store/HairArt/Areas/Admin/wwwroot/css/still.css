@@ -1,0 +1,60 @@
+.login-container {
+    margin-top: 150px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}
+
+.form-label {
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; /* Yazı ile input arasına biraz boşluk ekler */
+}
+.text-center.my-3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.login-contaner {
+    margin-top: 200px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}
+.login-contan {
+    margin-top: 50px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}
+.display-6 {
+    margin-top: 50px; /* Update yazısını aşağıya iter */
+}
+.navbar {
+    background-color: rgba(255, 255, 255, 0.8); /* Şeffaf beyaz arka plan */
+    transition: background-color 0.3s ease; /* Hover için geçiş efekti */
+}
+
+.navbar:hover {
+    background-color: rgba(255, 255, 255, 1); /* Hover durumunda tamamen beyaz */
+}
+
+.navbar .nav-link {
+    color: #000; /* Siyah yazı rengi */
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-link:hover {
+    color: #555; /* Hover durumunda gri ton */
+}
+
+.navbar .navbar-brand {
+    color: #000; /* Siyah logo rengi */
+}
+
+.navbar .btn-dark {
+    color: #fff; /* Buton yazısı beyaz */
+    background-color: #000; /* Buton arka planı siyah */
+    border: none;
+}
+
+.navbar .btn-dark:hover {
+    background-color: #333; /* Daha koyu siyah hover efekti */
+}

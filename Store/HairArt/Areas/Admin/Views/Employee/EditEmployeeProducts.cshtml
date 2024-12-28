@@ -1,5 +1,9 @@
 @model Entities.Models.Employee
 
+ <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6"></div>
+    </div>
 @{
     ViewBag.Title = "Çalışan Ürünlerini Düzenle";
     var allProducts = ViewBag.AllProducts as IEnumerable<Entities.Models.Product>;
@@ -7,13 +11,13 @@
 }
 
 <div class="container mt-5">
-    <h2>@Model.FirstName @Model.LastName için Ürünleri Düzenle</h2>
+    <h2>@Model.FirstName @Model.LastName for Update Services</h2>
 
     <form method="post" asp-action="EditEmployeeProducts">
         <input type="hidden" name="employeeId" value="@Model.EmployeeId" />
 
         <div class="form-group">
-            <label>Ürünler</label>
+            <label></label>
             <div class="form-check">
                 @foreach (var product in allProducts)
                 {

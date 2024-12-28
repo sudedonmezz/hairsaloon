@@ -59,15 +59,15 @@
                         }
                     </td>
                    <td>  <div class="button-group">
-                    <a asp-action="EditEmployeeProducts" asp-route-id="@employee.EmployeeId" class="btn btn-primary btn-sm">Edit Products</a>
-                    <a asp-action="EditEmployeeSchedules" asp-route-id="@employee.EmployeeId" class="btn btn-warning btn-sm">Edit Schedules</a>
-                    <form method="get" asp-action="Delete" asp-route-id="@employee.EmployeeId" style="display:inline;">
-                            <button class="btn btn-danger" type="submit">Sil</button>
+                    <a asp-action="EditEmployeeProducts" asp-route-id="@employee.EmployeeId" class="btn btn-primary">Edit Products</a>
+                    <a asp-action="EditEmployeeSchedules" asp-route-id="@employee.EmployeeId" class="btn btn-warning ">Edit Schedules</a>
+                    <form method="get" asp-action="Delete" asp-route-id="@employee.EmployeeId" >
+                            <button class="btn btn-danger" type="submit">Delete</button>
                     </form>
                     <!-- Toggle Availability -->
                         <form asp-action="ToggleAvailability" asp-controller="Employee" asp-area="Admin" method="post" style="display:inline;">
                             <input type="hidden" name="id" value="@employee.EmployeeId" />
-                            <button type="submit" class="btn btn-sm btn-primary">
+                            <button type="submit" class="btn btn-primary">
                                 @if (employee.IsAvailable)
                                 {
                                     <span>Set Unavailable</span>

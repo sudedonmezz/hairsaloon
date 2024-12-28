@@ -15,7 +15,14 @@
 <body>
 
     <div class="container mt-5">
-    <h2>Category Management</h2>
+        <div class="container mt-5">
+    
+   <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6">Categories</div>
+    </div>
+    
+   
 
     <!-- Success ve Error Mesajları -->
     @if (TempData["ErrorMessage"] != null)
@@ -33,9 +40,9 @@
 
     <!-- Create Button -->
     <div class="d-flex justify-content-end mb-3">
-        <a href="/Admin/Category/Create" class="btn btn-success">
-            <i class="fa fa-plus"></i> Create Category
-        </a>
+      <a class="btn btn-outline-success" asp-action="Create">
+        <i class="fa fa-plus"></i>Create
+    </a>
     </div>
 
     <!-- Categories Table -->
@@ -73,8 +80,8 @@
                         <td>${category.categoryName}</td>
                         <td>${category.categoryDescription || 'No description'}</td>
                         <td>
-                            <a href="/Admin/Category/Edit/${category.categoryId}" class="btn btn-primary btn-sm">Edit</a>
-                            <button onclick="deleteCategory(${category.categoryId})" class="btn btn-danger btn-sm">Delete</button>
+                            <a href="/Admin/Category/Edit/${category.categoryId}" class="btn btn-warning">Edit</a>
+                            <button onclick="deleteCategory(${category.categoryId})" class="btn btn-danger">Delete</button>
                         </td>
                     </tr>`;
                 tableBody.innerHTML += row;
@@ -105,3 +112,4 @@
     }
 </script>
 </body>
+</div>

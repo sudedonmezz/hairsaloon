@@ -1,11 +1,15 @@
 @model Entities.Models.Employee
 
+ <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6"></div>
+    </div>
 @{
     ViewBag.Title = "Yeni Çalışan Ekle";
 }
 
 <div class="container mt-5">
-    <h2>Yeni Çalışan Ekle</h2>
+    <h2>Add New Professional</h2>
 
     <!-- TempData'dan gelen hata veya başarı mesajlarını göster -->
     @if (TempData["ErrorMessage"] != null)
@@ -23,24 +27,24 @@
 
     <form method="post" asp-action="Create">
         <div class="form-group">
-            <label for="FirstName">Ad</label>
+            <label for="FirstName">Name</label>
             <input type="text" class="form-control" id="FirstName" name="FirstName" required />
         </div>
         <div class="form-group">
-            <label for="LastName">Soyad</label>
+            <label for="LastName">LastName</label>
             <input type="text" class="form-control" id="LastName" name="LastName" required />
         </div>
         <div class="form-group">
-            <label for="Email">E-posta</label>
+            <label for="Email">Email</label>
             <input type="email" class="form-control" id="Email" name="Email" required />
         </div>
         <div class="form-group">
-            <label for="IsAvailable">Müsait Durumu</label>
+            <label for="IsAvailable">Is Available</label>
             <select class="form-control" id="IsAvailable" name="IsAvailable">
-                <option value="true">Müsait</option>
-                <option value="false">Meşgul</option>
+                <option value="true">Available</option>
+                <option value="false">Not Available</option>
             </select>
         </div>
-        <button type="submit" class="btn btn-primary mt-3">Ekle</button>
+        <button type="submit" class="btn btn-primary mt-3">Add</button>
     </form>
 </div>

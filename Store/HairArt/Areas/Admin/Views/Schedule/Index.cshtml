@@ -5,7 +5,7 @@
       <div class="my-5"><i class="fa fa-plus"></i></div>
     <div class="text-center my-5">
          
-        <div class="display-6">Tüm Çalışma Saatleri</div>
+        <div class="display-6">All Schedules</div>
         <a class="btn btn-outline-info" asp-action="Create">Create</a>
 </div>
       @if (TempData["ErrorMessage"] != null)
@@ -30,9 +30,9 @@
         <thead>
             <tr>
                 <th>Schedule ID</th>
-                <th>Başlangıç Saati</th>
-                <th>Bitiş Saati</th>
-                <th>İşlem</th>
+                <th>Start Time</th>
+                <th>Finish Time</th>
+                <th>Operations</th>
             </tr>
         </thead>
         <tbody>
