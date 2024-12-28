@@ -1,5 +1,7 @@
 @model HairArt.ViewModels.ConfirmAppointmentViewModel
 
+
+<div class="container login-container">
 <h2>Randevu Onayı</h2>
 <p><strong>Kategori:</strong> @Model.Category.CategoryName</p>
 <p><strong>Ürün:</strong> @Model.Product.ProductName</p>
@@ -13,5 +15,6 @@
     <input type="hidden" name="ScheduleId" value="@Model.Schedule.ScheduleId" />
     <input type="hidden" name="AppointmentDate" value="@Model.AppointmentDate" />
 
-    <button class="btn btn-success" type="submit">Randevuyu Onayla</button>
+    <button class="btn btn-brand" type="submit">Randevuyu Onayla</button>
 </form>
+</div>

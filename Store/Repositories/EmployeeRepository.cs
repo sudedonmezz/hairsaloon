@@ -76,6 +76,15 @@ public void Create(Employee employee)
     _context.Employees.Add(employee);
 }
 
+public void UpdateAvailability(int employeeId, bool isAvailable)
+{
+    var employee = _context.Employees.FirstOrDefault(e => e.EmployeeId == employeeId);
+    if (employee != null)
+    {
+        employee.IsAvailable = isAvailable;
+        _context.SaveChanges();
+    }
+}
 
 
 

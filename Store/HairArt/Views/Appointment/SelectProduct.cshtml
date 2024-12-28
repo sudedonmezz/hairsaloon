@@ -1,17 +1,20 @@
 @model HairArt.ViewModels.SelectProductViewModel
 
-<h2>Ürün Seç</h2>
+
+<div class="container login-container">
+<h2>Select Service </h2>
 
 <div class="form-group">
 <form method="post">
-    <label for="product">Ürün Seçin:</label>
+    <label for="product"></label>
     <select class="form-select"id="product" name="ProductId" required>
         @foreach (var product in Model.Products)
         {
             <option value="@product.ProductId">@product.ProductName</option>
         }
     </select>
-    <button class="btn btn-brand" type="submit">Devam</button>
+    <button class="btn btn-brand" type="submit">Continue</button>
 </form>
 
+</div>
 </div>

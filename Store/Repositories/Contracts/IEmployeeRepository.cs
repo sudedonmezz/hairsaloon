@@ -21,5 +21,7 @@ public interface IEmployeeRepository : IRepositoryBase<Employee>
 
     void Create(Employee employee);
 
+void UpdateAvailability(int employeeId, bool isAvailable);
+
 
 }

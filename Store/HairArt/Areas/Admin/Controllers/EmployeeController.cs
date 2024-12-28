@@ -162,6 +162,29 @@ public IActionResult EditEmployeeSchedules(int employeeId, List<int> scheduleIds
     return RedirectToAction("Index");
 }
 
+[HttpPost]
+public IActionResult ToggleAvailability(int id)
+{
+    try
+    {
+        var employee = _serviceManager.EmployeeService.GetEmployeeById(id, false);
+        if (employee == null)
+        {
+            return NotFound();
+        }
+
+        // Mevcut isAvailable değerini tersine çevir
+        _serviceManager.EmployeeService.UpdateAvailability(id, !employee.IsAvailable);
+
+        TempData["SuccessMessage"] = "Availability status updated successfully.";
+    }
+    catch (Exception ex)
+    {
+        TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
+    }
+
+    return RedirectToAction("Index");
+}
 
 
 

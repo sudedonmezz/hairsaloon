@@ -80,5 +80,12 @@ public void CreateEmployee(Employee employee)
     _manager.Save();
 }
 
+public void UpdateAvailability(int employeeId, bool isAvailable)
+{
+    _manager.Employee.UpdateAvailability(employeeId, isAvailable);
+    _manager.Save();
+}
+
+
 
 }

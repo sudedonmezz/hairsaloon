@@ -1,6 +1,7 @@
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
 using Repositories.Contracts;
+using Services.Contracts;
 namespace HairArt.Controllers;
 
 public class CategoryController : Controller
@@ -31,4 +32,6 @@ public class CategoryController : Controller
         ViewBag.CategoryName = category.CategoryName;
         return View(products);
     }
+
+
 }

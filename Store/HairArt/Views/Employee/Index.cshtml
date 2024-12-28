@@ -1,0 +1,52 @@
+@model IEnumerable<Entities.Models.Employee>
+
+<div class="container login-contan">
+    <div class="container py-5">
+        <div class="text-center mb-5">
+            <h2 class="display-6">Professionals</h2>
+        </div>
+
+        <div class="row justify-content-center">
+            @foreach (var employee in Model)
+            {
+                <div class="col-md-3 mb-4">
+                    <div class="card shadow border-0 h-100 text-center">
+                        <div class="card-img-container">
+                            <img src="~/images/imaage.png" 
+                                 class="card-img-top" 
+                                 alt="@employee.EmployeeId">
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <!-- Çalışan Adı -->
+                            <h4 class="card-title">
+                                <span style="color: @(employee.IsAvailable ? "green" : "red"); font-size: 1.2rem; margin-right: 5px;">●</span> 
+                                @($"{employee.FirstName} {employee.LastName}")
+                            </h4>
+                            <!-- Müsaitlik Durumu -->
+                            <p class="card-text @(employee.IsAvailable ? "text-success" : "text-danger")">
+                                @(employee.IsAvailable ? "Available" : "Not Available")
+                            </p>
+                            <!-- Ürünler -->
+                            <div>
+                                <strong>Expertise</strong>
+                                @if (employee.EmployeeProducts != null && employee.EmployeeProducts.Any())
+                                {
+                                    <ul class="list-unstyled">
+                                        @foreach (var product in employee.EmployeeProducts)
+                                        {
+                                            <li>@product.Product.ProductName</li>
+                                        }
+                                    </ul>
+                                }
+                                else
+                                {
+                                    <p class="text-muted">No products assigned</p>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>

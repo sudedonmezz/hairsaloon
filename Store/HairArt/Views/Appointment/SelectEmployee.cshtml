@@ -1,10 +1,11 @@
 @model HairArt.ViewModels.SelectEmployeeViewModel
 
-<h2>Çalışan Seç</h2>
+<div class="container login-container">
+<h2>Select Available Professional</h2>
 
 <div class="form-group">
 <form method="post">
-    <label for="employee">Çalışan Seçin:</label>
+    <label for="employee"></label>
     <select class="form-select" id="employee" name="EmployeeId" required>
         @foreach (var employee in Model.Employees)
         {
@@ -14,4 +15,5 @@
     
     <button class="btn btn-brand"type="submit">Devam</button>
 </form>
+</div>
 </div>

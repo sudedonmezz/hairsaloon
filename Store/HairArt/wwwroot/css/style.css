@@ -466,4 +466,29 @@ img {
 }
 
 
+.login-container {
+    margin-top: 150px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}
 
+.form-label {
+    text-align: left;
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px; /* Yazı ile input arasına biraz boşluk ekler */
+}
+.text-center.my-3 {
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+.login-contaner {
+    margin-top: 100px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}
+.login-contan {
+    margin-top: 50px; /* Yukarıdan boşluğu artırdık */
+    margin-bottom: 50px; /* Alt boşluk eklemek istersen */
+    text-align: center; /* Formu ortalamaya devam eder */
+}

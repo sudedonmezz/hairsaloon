@@ -21,6 +21,8 @@ public interface IEmployeeService
     void CreateEmployee(Employee employee);
 
 
+    void UpdateAvailability(int employeeId, bool isAvailable);
+
 
 
 }

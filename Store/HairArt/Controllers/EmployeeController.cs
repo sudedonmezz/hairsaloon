@@ -24,6 +24,12 @@ public class EmployeeController : Controller
     return View(availableEmployees);
 }
 
+public IActionResult Index()
+    {
+        var employees = _serviceManager.EmployeeService.GetAllEmployeesWithDetails(false);
+        return View(employees);
+    }
+
 // Kategoriye göre çalışanları getiren action
     public IActionResult GetByCategory(int categoryId)
     {
