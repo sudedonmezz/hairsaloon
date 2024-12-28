@@ -11,4 +11,6 @@ public int EmployeeId { get; set; }
 
     public ICollection<EmployeeProduct> EmployeeProducts { get; set; } = new List<EmployeeProduct>(); // Many-to-Many Relationship
     public ICollection<EmployeeSchedule> EmployeeSchedules { get; set; } = new List<EmployeeSchedule>();
+
+      public ICollection<Appointment>? Appointments { get; set; }
 }

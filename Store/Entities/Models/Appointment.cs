@@ -26,6 +26,8 @@ namespace Entities.Models
         [Required]
         public int EmployeeId { get; set; }
 
+        public Employee Employee { get; set; }
+
         [Required]
         public int ScheduleId { get; set; }
         public EmployeeSchedule EmployeeSchedule { get; set; }
