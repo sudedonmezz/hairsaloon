@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
+using Entities.Models;
 
 namespace HairArt.Areas.Admin.Controllers;
 
@@ -82,6 +83,87 @@ public IActionResult Delete([FromRoute(Name = "id")] int id)
 
     return RedirectToAction("Index");
 }
+
+[HttpGet]
+public IActionResult Create()
+{
+    return View();
+}
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public IActionResult Create(Employee employee)
+{
+    if (ModelState.IsValid)
+    {
+        _serviceManager.EmployeeService.CreateEmployee(employee);
+        TempData["SuccessMessage"] = "Çalışan başarıyla eklendi.";
+        return RedirectToAction("Index");
+    }
+
+    TempData["ErrorMessage"] = "Çalışan eklenirken bir hata oluştu.";
+    return View(employee);
+}
+
+[HttpGet]
+public IActionResult EditEmployeeSchedules(int id)
+{
+    // Çalışanı getir
+    var employee = _serviceManager.EmployeeService.GetEmployeeById(id, false);
+    if (employee == null)
+    {
+        return NotFound("Employee not found.");
+    }
+
+    // Tüm takvimleri getir
+    var allSchedules = _serviceManager.ScheduleService.GetAllSchedules(false);
+    if (allSchedules == null || !allSchedules.Any())
+    {
+        TempData["ErrorMessage"] = "No schedules available.";
+        return RedirectToAction("Index");
+    }
+
+    // Çalışana atanmış takvimleri getir
+    var assignedSchedules = _serviceManager.EmployeeScheduleService
+        .GetSchedulesByEmployee(id, false)
+        .Select(es => es.ScheduleId)
+        .ToList();
+
+    // ViewBag üzerinden takvimleri ve atanmış takvimleri gönder
+    ViewBag.AllSchedules = allSchedules;
+    ViewBag.AssignedSchedules = assignedSchedules;
+
+    return View(employee);
+}
+
+
+[HttpPost]
+[ValidateAntiForgeryToken]
+public IActionResult EditEmployeeSchedules(int employeeId, List<int> scheduleIds)
+{
+    if (scheduleIds == null)
+    {
+        TempData["ErrorMessage"] = "No schedules selected.";
+        return RedirectToAction("EditEmployeeSchedules", new { id = employeeId });
+    }
+
+    try
+    {
+        // Çalışanın takvimlerini güncelle
+        _serviceManager.EmployeeScheduleService.UpdateEmployeeSchedules(employeeId, scheduleIds);
+
+        TempData["SuccessMessage"] = "Çalışanın takvimleri başarıyla güncellendi.";
+    }
+    catch (Exception ex)
+    {
+        TempData["ErrorMessage"] = $"Takvim güncellenirken bir hata oluştu: {ex.Message}";
+    }
+
+    return RedirectToAction("Index");
+}
+
+
+
 
 
 }

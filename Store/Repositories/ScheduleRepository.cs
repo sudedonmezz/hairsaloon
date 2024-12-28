@@ -15,4 +15,17 @@ public class ScheduleRepository : RepositoryBase<Schedule>, IScheduleRepository
         return FindByCondition(s => s.ScheduleId == scheduleId, trackChanges)
                .SingleOrDefault(); // IQueryable -> Schedule dönüşümü
     }
+
+    public void DeleteSchedule(Schedule schedule)
+{
+    Remove(schedule);
+}
+
+public void CreateSchedule(Schedule schedule)
+{
+    Create(schedule);
+}
+
+
+
 }

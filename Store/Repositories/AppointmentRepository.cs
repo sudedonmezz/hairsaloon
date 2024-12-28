@@ -59,5 +59,14 @@ namespace Repositories
         public bool HasAppointmentsForProduct(int productId) =>
         FindByCondition(a => a.ProductId == productId, trackChanges: false).Any();
 
+
+
+public IEnumerable<Appointment> GetAppointmentsByCategoryId(int categoryId, bool trackChanges)
+{
+    return FindByCondition(a => a.CategoryId == categoryId, trackChanges).ToList();
+}
+
+
+
     }
 }

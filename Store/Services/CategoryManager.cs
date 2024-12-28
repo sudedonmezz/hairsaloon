@@ -21,4 +21,35 @@ public class CategoryManager : ICategoryService
         return _manager.Category.FindByCondition(c => c.CategoryId == categoryId, trackChanges)
                                                     .SingleOrDefault();
     }
+
+public void UpdateCategory(Category category)
+{
+    _manager.Category.UpdateCategory(category);
+}
+
+public void DeleteCategory(int categoryId)
+{
+    var category = _manager.Category.GetCategoryById(categoryId, false);
+    if (category == null)
+    {
+        throw new Exception("Category not found.");
+    }
+
+    _manager.Category.DeleteCategory(category);
+}
+
+public void CreateCategory(Category category)
+{
+    if (category == null)
+    {
+        throw new ArgumentNullException(nameof(category));
+    }
+
+    _manager.Category.CreateCategory(category);
+    _manager.Save();
+}
+
+
+
+
 }

@@ -19,4 +19,7 @@ public interface IEmployeeRepository : IRepositoryBase<Employee>
 
     public void DeleteEmployee(int employeeId);
 
+    void Create(Employee employee);
+
+
 }

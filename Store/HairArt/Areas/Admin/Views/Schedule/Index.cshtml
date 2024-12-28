@@ -1,0 +1,55 @@
+@model IEnumerable<Entities.Models.Schedule>
+
+<div class="container mt-5">
+
+      <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+         
+        <div class="display-6">Tüm Çalışma Saatleri</div>
+        <a class="btn btn-outline-info" asp-action="Create">Create</a>
+</div>
+      @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+  
+    <div class="d-flex justify-content-end my-3">
+
+
+    <h2></h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Schedule ID</th>
+                <th>Başlangıç Saati</th>
+                <th>Bitiş Saati</th>
+                <th>İşlem</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var schedule in Model)
+            {
+                <tr>
+                    <th>@schedule.ScheduleId</th>
+                    <td>@schedule.StartDateTime.ToString("g")</td>
+                    <td>@schedule.EndDateTime.ToString("g")</td>
+                    <td>
+                        <div class="btn btn-group">
+                        
+
+                        <a asp-action="Delete" asp-route-id="@schedule.ScheduleId" class="btn btn-danger">Sil</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

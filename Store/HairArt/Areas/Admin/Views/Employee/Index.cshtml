@@ -6,7 +6,7 @@
         <div class="display-6">Employee List</div>
     </div>
     <div class="d-flex justify-content-end my-3">
-<a class="btn btn-outline-success" asp-action="Create">
+<a class="btn btn-outline-success" asp-controller="Employee" asp-action="Create">
         <i class="fa fa-plus"></i>Create
     </a>
     </div>
@@ -59,7 +59,8 @@
                         }
                     </td>
                    <td>  <div class="button-group">
-                    <a asp-action="EditEmployeeProducts" asp-route-id="@employee.EmployeeId" class="btn btn-primary btn-sm">Edit</a>
+                    <a asp-action="EditEmployeeProducts" asp-route-id="@employee.EmployeeId" class="btn btn-primary btn-sm">Edit Products</a>
+                    <a asp-action="EditEmployeeSchedules" asp-route-id="@employee.EmployeeId" class="btn btn-warning btn-sm">Edit Schedules</a>
                     <form method="get" asp-action="Delete" asp-route-id="@employee.EmployeeId" style="display:inline;">
                             <button class="btn btn-danger" type="submit">Sil</button>
                         </form>
@@ -68,4 +69,4 @@
             }
         </tbody>
     </table>
-
+</div>

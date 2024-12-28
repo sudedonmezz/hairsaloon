@@ -68,6 +68,12 @@ public void DeleteEmployee(int employeeId)
     {
         Remove(employee);
     }
+
+}
+
+public void Create(Employee employee)
+{
+    _context.Employees.Add(employee);
 }
 
 

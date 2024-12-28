@@ -47,5 +47,13 @@ namespace Services
         return _repository.Appointment.GetAppointmentsByUserId(userId, trackChanges);
     }
 
+   public bool CategoryHasAppointments(int categoryId)
+{
+    return _repository.Appointment.GetAllAppointments(false)
+        .Any(a => a.CategoryId == categoryId);
+}
+
+
+
     }
 }

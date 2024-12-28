@@ -1,11 +1,67 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h3>Category Index</h3>
-</body>
-</html>
+@model IEnumerable<Entities.Models.Category>
+
+<div class="container mt-5">
+    <div class="text-center my-5">
+         <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6">Category List</div>
+    </div>
+        
+    </div>
+
+    <div class="d-flex justify-content-end my-3">
+        <a class="btn btn-outline-success" asp-controller="Category" asp-action="Create">
+            <i class="fa fa-plus"></i> Create New Category
+        </a>
+    </div>
+
+    <!-- TempData Mesajları -->
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Category ID</th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Image</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var category in Model)
+            {
+                <tr>
+                    <td>@category.CategoryId</td>
+                    <td>@category.CategoryName</td>
+                    <td>@category.CategoryDescription</td>
+                    <td>
+                        @if (!string.IsNullOrEmpty(category.ImageUrl))
+                        {
+                            <img src="@category.ImageUrl" alt="@category.CategoryName" width="50" />
+                        }
+                    </td>
+                    <td>
+                        <div class="btn-group">
+                            <a asp-action="Edit" asp-route-id="@category.CategoryId" class="btn btn-primary btn-sm">Edit</a>
+                            <form method="post" asp-action="DeleteConfirmed" asp-route-id="@category.CategoryId" style="display:inline;">
+                                <button class="btn btn-danger btn-sm" type="submit">Delete</button>
+                            </form>
+                        </div>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

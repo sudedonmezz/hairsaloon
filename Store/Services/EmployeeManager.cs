@@ -74,6 +74,11 @@ public void DeleteEmployee(int employeeId)
     _manager.Save();
 }
 
+public void CreateEmployee(Employee employee)
+{
+    _manager.Employee.Create(employee);
+    _manager.Save();
+}
 
 
 }

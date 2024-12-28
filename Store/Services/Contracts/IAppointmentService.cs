@@ -15,5 +15,8 @@ namespace Services.Contracts
 
         // Yeni yöntem
     IEnumerable<Appointment> GetAppointmentsByUserId(string userId, bool trackChanges);
+
+
+    public bool CategoryHasAppointments(int categoryId);
     }
 }

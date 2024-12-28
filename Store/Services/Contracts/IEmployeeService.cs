@@ -18,6 +18,8 @@ public interface IEmployeeService
 
     public bool HasAppointmentsForEmployee(int employeeId);
 
+    void CreateEmployee(Employee employee);
+
 
 
 
