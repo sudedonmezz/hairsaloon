@@ -21,5 +21,10 @@ namespace Services.Contracts;
 
         Task<bool> HasAppointments(string userId);
 
+        Task<IdentityResult> CreateUser(ApplicationUser user, string password);
+
+       
+       Task<IdentityResult> AddToRole(ApplicationUser user, string role);
+
     }
 

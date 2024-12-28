@@ -66,7 +66,17 @@ public IEnumerable<Appointment> GetAppointmentsByCategoryId(int categoryId, bool
     return FindByCondition(a => a.CategoryId == categoryId, trackChanges).ToList();
 }
 
+public IEnumerable<ApplicationUser> GetUsersByEmployeeId(int employeeId)
+    {
+        return _context.Appointments
+            .Where(a => a.EmployeeId == employeeId)
+            .Select(a => a.User)
+            .Distinct()
+            .ToList();
+    }
+
 
 
     }
+
 }

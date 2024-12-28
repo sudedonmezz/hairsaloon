@@ -6,7 +6,16 @@
         </li>
   }
 
+@if(User.Identity.IsAuthenticated && User.IsInRole("Employees"))
+  {
+  <li class="nav-item">
+          <a class="nav-link"
+          aria-current="page" asp-area="Employees" asp-action="Index" asp-controller="Employees">Employee</a>
+        </li>
+       
+  }
  
+
  
  @if(User.Identity.IsAuthenticated)
         {

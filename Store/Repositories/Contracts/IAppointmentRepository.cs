@@ -18,7 +18,7 @@ namespace Repositories.Contracts
          public bool HasAppointmentsForProduct(int productId);
 
 
-    
+         IEnumerable<ApplicationUser> GetUsersByEmployeeId(int employeeId);
 
          public IEnumerable<Appointment> GetAppointmentsByCategoryId(int categoryId, bool trackChanges);
 

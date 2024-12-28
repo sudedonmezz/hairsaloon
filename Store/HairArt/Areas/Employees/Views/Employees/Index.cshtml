@@ -1,0 +1,57 @@
+@model IEnumerable<Entities.Models.Appointment>
+
+
+    
+
+<div class="container mt-5">
+    
+   <div class="my-5"><i class="fa fa-plus"></i></div>
+    <div class="text-center my-5">
+        <div class="display-6">Appointments</div>
+    </div>
+    <div class="d-flex justify-content-end my-3">
+
+        
+    </a>
+    </div>
+
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Category</th>
+                <th>Product</th>
+                <th>Product Price</th>
+                <th>Duration</th>
+                <th>Employee</th>
+                <th>Schedule</th>
+                <th>User</th>
+                <th>Is Approved</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var appointment in Model)
+            {
+                <tr>
+                    <td>@appointment.Category?.CategoryName </td>
+                    <td>@appointment.EmployeeProduct?.Product?.ProductName  </td>
+                    <td>@appointment.EmployeeProduct?.Product?.ProductPrice </td>
+                    <td>@appointment.EmployeeProduct?.Product?.Duration </td>
+                    <td>@appointment.EmployeeProduct?.Employee?.FirstName @appointment.EmployeeProduct?.Employee?.LastName</td>
+                    <td>@($"{appointment.EmployeeSchedule?.Schedule?.StartDateTime} - {appointment.EmployeeSchedule?.Schedule?.EndDateTime}" ?? "N/A")</td>
+                    <td>@($"{appointment.User?.Name} {appointment.User?.LastName}" ?? "N/A")</td>
+                    <td>@appointment.IsApproved</td>
+                    <td>
+                        <form method="post" asp-action="ApproveAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
+                            <button class="btn btn-success" type="submit">Approve</button>
+                        </form>
+                        <form method="post" asp-action="DeleteAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+

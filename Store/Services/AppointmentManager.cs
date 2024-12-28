@@ -53,6 +53,12 @@ namespace Services
         .Any(a => a.CategoryId == categoryId);
 }
 
+public IEnumerable<ApplicationUser> GetUsersByEmployeeId(int employeeId)
+    {
+        return _repository.Appointment.GetUsersByEmployeeId(employeeId);
+    }
+
+
 
 
     }

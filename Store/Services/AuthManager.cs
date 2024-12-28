@@ -170,5 +170,20 @@ public async Task<IEnumerable<string>> GetOneUserRoles(string email)
             return appointments.Any();
         }
     
+      
+        public async Task<IdentityResult> CreateUser(ApplicationUser user, string password)
+{
+    return await _userManager.CreateAsync(user, password);
+}
+
+
+public async Task<IdentityResult> AddToRole(ApplicationUser user, string role)
+{
+    if (!await _roleManager.RoleExistsAsync(role))
+    {
+        await _roleManager.CreateAsync(new IdentityRole(role));
+    }
+    return await _userManager.AddToRoleAsync(user, role);
+}
 
 }

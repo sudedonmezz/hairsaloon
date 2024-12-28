@@ -18,5 +18,7 @@ namespace Services.Contracts
 
 
     public bool CategoryHasAppointments(int categoryId);
+
+    public IEnumerable<ApplicationUser> GetUsersByEmployeeId(int employeeId);
     }
 }

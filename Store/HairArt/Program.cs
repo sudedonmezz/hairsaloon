@@ -105,6 +105,12 @@ endpoints.MapAreaControllerRoute(
     pattern:"Admin/{controller=Dashboard}/{action=Index}/{id?}"
 
 );
+
+    endpoints.MapAreaControllerRoute(
+        name: "Employees",
+        areaName: "Employees",
+        pattern: "Employees/{controller=Employees}/{action=Index}/{id?}"
+    );
 endpoints.MapControllerRoute(
      name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
