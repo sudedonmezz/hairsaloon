@@ -1,49 +1,61 @@
-@model Entities.Models.Category
-
 <div class="container mt-5">
-    <h2></h2>
-
-    <div class="my-5"><i class="fa fa-plus"></i></div>
-    <div class="text-center my-5">
-        <div class="display-6">Edit Category</div>
-    </div>
-
-     @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger" role="alert">
-            @TempData["ErrorMessage"]
+    <h2>Edit Category</h2>
+    <form id="updateForm">
+        <div class="mb-3">
+            <label for="categoryName" class="form-label">Category Name</label>
+            <input type="text" id="categoryName" class="form-control" required />
         </div>
-    }
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success" role="alert">
-            @TempData["SuccessMessage"]
+        <div class="mb-3">
+            <label for="categoryDescription" class="form-label">Category Description</label>
+            <textarea id="categoryDescription" class="form-control"></textarea>
         </div>
-    }
-
-  <form asp-action="Edit" method="post">
-    <input type="hidden" asp-for="CategoryId" />
-
-    <div class="mb-3">
-        <label asp-for="CategoryName" class="form-label">Category Name</label>
-        <input asp-for="CategoryName" class="form-control" />
-        <span asp-validation-for="CategoryName" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="CategoryDescription" class="form-label">Category Description</label>
-        <textarea asp-for="CategoryDescription" class="form-control"></textarea>
-        <span asp-validation-for="CategoryDescription" class="text-danger"></span>
-    </div>
-
-    <div class="mb-3">
-        <label asp-for="ImageUrl" class="form-label">Image URL</label>
-        <input asp-for="ImageUrl" class="form-control" />
-        <span asp-validation-for="ImageUrl" class="text-danger"></span>
-    </div>
-
-    <button type="submit" class="btn btn-primary">Save Changes</button>
-    <a asp-action="Index" class="btn btn-secondary">Cancel</a>
-</form>
-
+        <button type="submit" class="btn btn-primary">Save</button>
+    </form>
 </div>
+
+<script>
+    const categoryId = window.location.pathname.split('/').pop(); // URL'den ID'yi al
+    fetch(`/api/Category/GetCategoryById/${categoryId}`)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Failed to fetch category');
+            }
+            return response.json();
+        })
+        .then(category => {
+            document.getElementById('categoryName').value = category.categoryName;
+            document.getElementById('categoryDescription').value = category.categoryDescription;
+        })
+        .catch(error => {
+            console.error('Error fetching category:', error);
+            alert('Error fetching category details');
+        });
+
+    document.getElementById('updateForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+        const updatedCategory = {
+            categoryId: categoryId,
+            categoryName: document.getElementById('categoryName').value,
+            categoryDescription: document.getElementById('categoryDescription').value
+        };
+
+        fetch(`/api/Category/UpdateCategory/${categoryId}`, {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(updatedCategory)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to update category');
+                }
+                alert('Category updated successfully');
+                window.location.href = '/Admin/Category/Index';
+            })
+            .catch(error => {
+                console.error('Error updating category:', error);
+                alert('Error updating category');
+            });
+    });
+</script>

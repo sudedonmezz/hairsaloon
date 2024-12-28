@@ -1,12 +1,17 @@
 @model HairArt.ViewModels.ConfirmAppointmentViewModel
 
-<h2>Randevuyu Onaylayın</h2>
+<h2>Randevu Onayı</h2>
 <p><strong>Kategori:</strong> @Model.Category.CategoryName</p>
 <p><strong>Ürün:</strong> @Model.Product.ProductName</p>
-<p><strong>Fiyat:</strong> @Model.Product.ProductPrice tl</p>
 <p><strong>Çalışan:</strong> @Model.Employee.FirstName @Model.Employee.LastName</p>
-<p><strong>Tarih ve Saat:</strong> @Model.Schedule.StartDateTime.ToString("dd/MM/yyyy HH:mm")</p>
+<p><strong>Tarih ve Saat:</strong> @Model.AppointmentDate.ToString("dd/MM/yyyy HH:mm")</p>
 
 <form method="post">
-    <button class="btn btn-brand" type="submit">Randevuyu Onayla</button>
+    <input type="hidden" name="CategoryId" value="@Model.Category.CategoryId" />
+    <input type="hidden" name="ProductId" value="@Model.Product.ProductId" />
+    <input type="hidden" name="EmployeeId" value="@Model.Employee.EmployeeId" />
+    <input type="hidden" name="ScheduleId" value="@Model.Schedule.ScheduleId" />
+    <input type="hidden" name="AppointmentDate" value="@Model.AppointmentDate" />
+
+    <button class="btn btn-success" type="submit">Randevuyu Onayla</button>
 </form>

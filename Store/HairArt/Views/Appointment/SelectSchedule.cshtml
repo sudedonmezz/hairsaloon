@@ -2,14 +2,18 @@
 
 <h2>Takvim Seç</h2>
 
-
 <form method="post">
-    <label for="schedule">Uygun Tarih ve Saat Seçin:</label>
+    <label for="schedule">Uygun Tarih Seçin:</label>
     <select class="form-select" id="schedule" name="ScheduleId" required>
         @foreach (var schedule in Model.Schedules)
         {
-            <option value="@schedule.ScheduleId">@schedule.StartDateTime.ToString("dd/MM/yyyy HH:mm") - @schedule.EndDateTime.ToString("HH:mm")</option>
+            <option value="@schedule.ScheduleId">@schedule.StartDateTime.ToString("dd/MM/yyyy")</option>
         }
     </select>
-    <button class="btn btn-brand"type="submit">Devam</button>
+
+    <label for="appointmentTime">Saat Seçin:</label>
+    <input type="time" id="appointmentTime" name="appointmentTime" required />
+
+    <button class="btn btn-brand" type="submit">Devam</button>
 </form>
+

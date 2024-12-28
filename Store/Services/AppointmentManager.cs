@@ -58,6 +58,17 @@ public IEnumerable<ApplicationUser> GetUsersByEmployeeId(int employeeId)
         return _repository.Appointment.GetUsersByEmployeeId(employeeId);
     }
 
+    public void ApproveAppointment(int appointmentId)
+{
+    var appointment = _repository.Appointment.GetAppointmentById(appointmentId, trackChanges: true);
+    if (appointment == null)
+    {
+        throw new ArgumentException($"Appointment with id {appointmentId} not found.");
+    }
+
+    appointment.IsApproved = true;
+    _repository.Save();
+}
 
 
 

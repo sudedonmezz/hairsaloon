@@ -20,4 +20,22 @@ public class EmployeesController : Controller
         var appointments = _serviceManager.AppointmentService.GetAllAppointments(false);
         return View(appointments);
     }
+
+    [HttpPost]
+[ValidateAntiForgeryToken]
+public IActionResult Approve(int id)
+{
+    try
+    {
+        _serviceManager.AppointmentService.ApproveAppointment(id);
+        TempData["SuccessMessage"] = "Appointment approved successfully.";
+    }
+    catch (Exception ex)
+    {
+        TempData["ErrorMessage"] = $"An error occurred: {ex.Message}";
+    }
+
+    return RedirectToAction("Index");
+}
+
 }

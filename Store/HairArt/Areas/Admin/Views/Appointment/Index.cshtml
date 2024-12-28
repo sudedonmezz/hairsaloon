@@ -25,9 +25,10 @@
                 <th>Duration</th>
                 <th>Employee</th>
                 <th>Schedule</th>
+                <th>Appointment Date</th>
                 <th>User</th>
                 <th>Is Approved</th>
-                <th>Actions</th>
+                
             </tr>
         </thead>
         <tbody>
@@ -40,16 +41,12 @@
                     <td>@appointment.EmployeeProduct?.Product?.Duration </td>
                     <td>@appointment.EmployeeProduct?.Employee?.FirstName @appointment.EmployeeProduct?.Employee?.LastName</td>
                     <td>@($"{appointment.EmployeeSchedule?.Schedule?.StartDateTime} - {appointment.EmployeeSchedule?.Schedule?.EndDateTime}" ?? "N/A")</td>
+                    <td>@appointment.AppointmentDate</td>
                     <td>@($"{appointment.User?.Name} {appointment.User?.LastName}" ?? "N/A")</td>
                     <td>@appointment.IsApproved</td>
-                    <td>
-                        <form method="post" asp-action="ApproveAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
-                            <button class="btn btn-success" type="submit">Approve</button>
-                        </form>
-                        <form method="post" asp-action="DeleteAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
-                    </td>
+                    
+                       
+                    
                 </tr>
             }
         </tbody>

@@ -107,14 +107,22 @@ namespace HairArt.Controllers
             return View(viewModel);
         }
 
-        [HttpPost]
-        public IActionResult SelectSchedule(int categoryId, int productId, int employeeId, int scheduleId)
-        {
-            return RedirectToAction("ConfirmAppointment", new { categoryId, productId, employeeId, scheduleId });
-        }
+   [HttpPost]
+public IActionResult SelectSchedule(int categoryId, int productId, int employeeId, int scheduleId, string appointmentTime)
+{
+    // Gelen saat bilgisini doğrulayın
+    if (string.IsNullOrEmpty(appointmentTime))
+    {
+        TempData["ErrorMessage"] = "Lütfen bir saat seçin.";
+        return RedirectToAction("SelectSchedule", new { categoryId, productId, employeeId });
+    }
 
-  [HttpGet]
-public async Task<IActionResult> ConfirmAppointment(int categoryId, int productId, int employeeId, int scheduleId)
+    // ConfirmAppointment'a yönlendirme
+    return RedirectToAction("ConfirmAppointment", new { categoryId, productId, employeeId, scheduleId, appointmentTime });
+}
+
+[HttpGet]
+public async Task<IActionResult> ConfirmAppointment(int categoryId, int productId, int employeeId, int scheduleId, string appointmentTime)
 {
     var category = _serviceManager.CategoryService.GetCategoryById(categoryId, false);
     var product = _serviceManager.ProductService.GetOneProduct(productId, false);
@@ -127,6 +135,21 @@ public async Task<IActionResult> ConfirmAppointment(int categoryId, int productI
         return RedirectToAction("Error");
     }
 
+    // Saat bilgisini Schedule tarihine ekleyin
+    DateTime appointmentDateTime;
+    try
+    {
+        var timeParts = appointmentTime.Split(':');
+        appointmentDateTime = schedule.StartDateTime.Date
+            .AddHours(int.Parse(timeParts[0]))
+            .AddMinutes(int.Parse(timeParts[1]));
+    }
+    catch
+    {
+        TempData["ErrorMessage"] = "Geçersiz saat formatı.";
+        return RedirectToAction("SelectSchedule", new { categoryId, productId, employeeId });
+    }
+
     var viewModel = new ConfirmAppointmentViewModel
     {
         UserName = $"{user.Name} {user.LastName}",
@@ -134,11 +157,13 @@ public async Task<IActionResult> ConfirmAppointment(int categoryId, int productI
         Product = product,
         Employee = employee,
         Schedule = schedule,
-        AppointmentDate = schedule.StartDateTime
+        AppointmentDate = appointmentDateTime
     };
 
     return View(viewModel);
 }
+
+
 
 
 
@@ -151,6 +176,30 @@ public IActionResult ConfirmAppointment(ConfirmAppointmentViewModel model)
         return RedirectToAction("Error");
     }
 
+    // Schedule bilgisine erişin
+    var schedule = _serviceManager.ScheduleService.GetScheduleById(model.ScheduleId, false);
+    if (schedule == null)
+    {
+        TempData["ErrorMessage"] = "Seçilen takvim bulunamadı.";
+        return RedirectToAction("SelectSchedule", new { model.CategoryId, model.ProductId, model.EmployeeId });
+    }
+
+    // Girilen saat ve takvim tarihini birleştirerek randevu tarihini oluşturun
+    DateTime appointmentDateTime;
+    try
+    {
+        var timeParts = model.AppointmentDate.ToString("HH:mm").Split(':');
+        appointmentDateTime = schedule.StartDateTime.Date
+            .AddHours(int.Parse(timeParts[0]))
+            .AddMinutes(int.Parse(timeParts[1]));
+    }
+    catch
+    {
+        TempData["ErrorMessage"] = "Geçersiz saat formatı.";
+        return RedirectToAction("SelectSchedule", new { model.CategoryId, model.ProductId, model.EmployeeId });
+    }
+
+    // Randevuyu oluştur ve kaydet
     var appointment = new Appointment
     {
         UserId = user.Id,
@@ -158,11 +207,12 @@ public IActionResult ConfirmAppointment(ConfirmAppointmentViewModel model)
         ProductId = model.ProductId,
         ScheduleId = model.ScheduleId,
         CategoryId = model.CategoryId,
-        AppointmentDate = DateTime.Now
+        AppointmentDate = appointmentDateTime // Doğru tarih ve saat
     };
 
     _serviceManager.AppointmentService.CreateAppointment(appointment);
 
+    TempData["SuccessMessage"] = "Randevu başarıyla oluşturuldu.";
     return RedirectToAction("AppointmentSuccess");
 }
 

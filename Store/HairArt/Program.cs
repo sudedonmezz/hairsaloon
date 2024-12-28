@@ -3,6 +3,7 @@ using Repositories;
 using Repositories.Contracts;
 using Services;
 using AutoMapper;
+using Presentation;
 using HairArt.Infrastructure.Mapper;
 using Entities.Models;
 using Services.Contracts;
@@ -13,9 +14,11 @@ using HairArt.Infrastructure.Extensions;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
-
+builder.Services.AddControllers()
+    .AddApplicationPart(typeof(Presentation.AssemblyReference).Assembly);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddRazorPages();
 builder.Services.AddDbContext<RepositoryContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("mssqlconnection"),
@@ -114,6 +117,8 @@ endpoints.MapAreaControllerRoute(
 endpoints.MapControllerRoute(
      name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
+    endpoints.MapControllers();
 });
 
 

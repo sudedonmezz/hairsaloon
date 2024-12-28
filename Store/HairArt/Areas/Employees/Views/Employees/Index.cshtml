@@ -14,6 +14,20 @@
         
     </a>
     </div>
+<div class="container mt-3">
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success" role="alert">
+            @TempData["SuccessMessage"]
+        </div>
+    }
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger" role="alert">
+            @TempData["ErrorMessage"]
+        </div>
+    }
+</div>
 
 
     <table class="table table-striped">
@@ -43,12 +57,13 @@
                     <td>@($"{appointment.User?.Name} {appointment.User?.LastName}" ?? "N/A")</td>
                     <td>@appointment.IsApproved</td>
                     <td>
-                        <form method="post" asp-action="ApproveAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
-                            <button class="btn btn-success" type="submit">Approve</button>
-                        </form>
-                        <form method="post" asp-action="DeleteAppointment" asp-route-id="@appointment.AppointmentId" style="display:inline;">
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
+                       @if (!appointment.IsApproved)
+            {
+                <form asp-action="Approve" asp-controller="Employees" asp-route-id="@appointment.AppointmentId" method="post">
+                    <button type="submit" class="btn btn-success btn-sm">Approve</button>
+                </form>
+            }
+                        
                     </td>
                 </tr>
             }

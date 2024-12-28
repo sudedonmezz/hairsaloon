@@ -1,41 +1,44 @@
-@model Entities.Models.Category
-
 <div class="container mt-5">
-    <h2>Create New Category</h2>
-
-    @if (TempData["ErrorMessage"] != null)
-    {
-        <div class="alert alert-danger" role="alert">
-            @TempData["ErrorMessage"]
-        </div>
-    }
-    @if (TempData["SuccessMessage"] != null)
-    {
-        <div class="alert alert-success" role="alert">
-            @TempData["SuccessMessage"]
-        </div>
-    }
-
-    <form asp-action="Create" method="post">
+    <h2>Create Category</h2>
+    <form id="createForm">
         <div class="mb-3">
-            <label asp-for="CategoryName" class="form-label">Category Name</label>
-            <input asp-for="CategoryName" class="form-control" />
-            <span asp-validation-for="CategoryName" class="text-danger"></span>
+            <label for="categoryName" class="form-label">Category Name</label>
+            <input type="text" id="categoryName" class="form-control" required />
         </div>
-
         <div class="mb-3">
-            <label asp-for="CategoryDescription" class="form-label">Category Description</label>
-            <textarea asp-for="CategoryDescription" class="form-control"></textarea>
-            <span asp-validation-for="CategoryDescription" class="text-danger"></span>
+            <label for="categoryDescription" class="form-label">Category Description</label>
+            <textarea id="categoryDescription" class="form-control"></textarea>
         </div>
-
-        <div class="mb-3">
-            <label asp-for="ImageUrl" class="form-label">Image URL</label>
-            <input asp-for="ImageUrl" class="form-control" />
-            <span asp-validation-for="ImageUrl" class="text-danger"></span>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Save</button>
-        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+        <button type="submit" class="btn btn-success">Create</button>
     </form>
 </div>
+
+<script>
+    document.getElementById('createForm').addEventListener('submit', function (event) {
+        event.preventDefault();
+
+        const newCategory = {
+            categoryName: document.getElementById('categoryName').value,
+            categoryDescription: document.getElementById('categoryDescription').value
+        };
+
+        fetch('/api/Category/CreateCategory', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(newCategory)
+        })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Failed to create category');
+                }
+                alert('Category created successfully');
+                window.location.href = '/Admin/Category/Index';
+            })
+            .catch(error => {
+                console.error('Error creating category:', error);
+                alert('Error creating category');
+            });
+    });
+</script>
